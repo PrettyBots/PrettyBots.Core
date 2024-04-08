@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Interactions", "PrettyBots.Interactions\PrettyBots.Interactions.csproj", "{4BE72ACD-973B-4489-A447-A73AA88AD061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Environment.Abstraction", "PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj", "{A8327995-8593-477A-B76D-C0FEA55B75F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BE72ACD-973B-4489-A447-A73AA88AD061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE72ACD-973B-4489-A447-A73AA88AD061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE72ACD-973B-4489-A447-A73AA88AD061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE72ACD-973B-4489-A447-A73AA88AD061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8327995-8593-477A-B76D-C0FEA55B75F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8327995-8593-477A-B76D-C0FEA55B75F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8327995-8593-477A-B76D-C0FEA55B75F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8327995-8593-477A-B76D-C0FEA55B75F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
