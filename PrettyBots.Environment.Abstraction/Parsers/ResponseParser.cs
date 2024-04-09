@@ -5,6 +5,11 @@ namespace PrettyBots.Environment.Parsers;
 /// <summary>
 /// Parses the specified <see cref="TMessage"/> into the specified <see cref="TResponse"/>.  
 /// </summary>
+/// <remarks>
+/// In order to be detected and/or loaded without errors, should have the
+/// <typeparamref name="TMessage"/> type set to the <see cref="IEnvironment.MessageType"/>
+/// of the environment it operates in.
+/// </remarks>
 public abstract class ResponseParser<TMessage, TResponse> : IResponseParser<TResponse>
     where TMessage  : IUserMessage
     where TResponse : IUserResponse

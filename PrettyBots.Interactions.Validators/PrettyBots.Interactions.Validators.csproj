@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PrettyBots.Attributes\PrettyBots.Attributes.csproj" />
+      <ProjectReference Include="..\PrettyBots.Environment\PrettyBots.Environment.csproj" />
+      <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Interactions\PrettyBots.Interactions.csproj" />
+    </ItemGroup>
+
+</Project>

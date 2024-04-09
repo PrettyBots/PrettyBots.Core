@@ -13,8 +13,18 @@ namespace PrettyBots.Environment.Parsers;
 public interface IResponseParser<out TResponse>
     where TResponse : IUserResponse
 {
+    /// <summary>
+    /// Implements rapid way of determining whether this message
+    /// is parsable into specified <see cref="TResponse"/> and also
+    /// if this parser can parse this message in general.
+    /// </summary>
+    /// <param name="message">Message that was sent by the user.</param>
     public bool CanParse(IUserMessage message);
 
+    /// <summary>
+    /// Parses the message that was sent by the user
+    /// into the response of the specified type.
+    /// </summary>
     public ITask<TResponse> ParseResponseAsync(IUserMessage message, 
         CancellationToken token = default);
 }

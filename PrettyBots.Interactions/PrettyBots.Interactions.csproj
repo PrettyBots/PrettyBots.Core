@@ -8,7 +8,17 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\PrettyBots.Attributes\PrettyBots.Attributes.csproj" />
       <ProjectReference Include="..\PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Interactions.Abstraction\PrettyBots.Interactions.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Storages.Abstraction\PrettyBots.Storages.Abstraction.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     </ItemGroup>
 
 </Project>

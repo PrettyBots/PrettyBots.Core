@@ -4,15 +4,10 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>PrettyBots.Environment</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MorseCode.ITask" Version="2.0.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Attributes\" />
+      <ProjectReference Include="..\PrettyBots.Model\PrettyBots.Model.csproj" />
     </ItemGroup>
 
 </Project>
