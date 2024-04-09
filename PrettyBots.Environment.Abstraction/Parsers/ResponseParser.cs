@@ -26,9 +26,9 @@ public abstract class ResponseParser<TMessage, TResponse> : IResponseParser<TRes
     }
 
     /// <inheritdoc cref="CanParse"/> 
-    protected abstract bool CanParse(TMessage telegramMessage);
+    protected abstract bool CanParse(TMessage message);
 
     /// <inheritdoc cref="ParseResponseAsync"/> 
-    protected abstract ITask<TResponse> ParseResponseAsync(TMessage telegramMessage,
+    protected abstract ITask<TResponse> ParseResponseAsync(TMessage message,
         CancellationToken token = default);
 }
