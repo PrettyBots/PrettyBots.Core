@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PrettyBots.Environment.Test\PrettyBots.Environment.Test.csproj" />
       <ProjectReference Include="..\PrettyBots.Interactions\PrettyBots.Interactions.csproj" />
     </ItemGroup>
 

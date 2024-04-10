@@ -24,8 +24,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Storages.EFCore"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Storages.Json", "PrettyBots.Storages.Json\PrettyBots.Storages.Json.csproj", "{B2E8C2AB-3B23-4431-923C-1FAABF10C15F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Environment.Test", "PrettyBots.Environment.Test\PrettyBots.Environment.Test.csproj", "{954AC6AB-6435-4D08-8471-EFD0E5B3FB87}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Tests", "PrettyBots.Tests\PrettyBots.Tests.csproj", "{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Tests.Environment", "PrettyBots.Tests.Environment\PrettyBots.Tests.Environment.csproj", "{AE6660C1-BB23-469F-BC81-608D3F818860}"
@@ -84,10 +82,6 @@ Global
 		{B2E8C2AB-3B23-4431-923C-1FAABF10C15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2E8C2AB-3B23-4431-923C-1FAABF10C15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2E8C2AB-3B23-4431-923C-1FAABF10C15F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{954AC6AB-6435-4D08-8471-EFD0E5B3FB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{954AC6AB-6435-4D08-8471-EFD0E5B3FB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{954AC6AB-6435-4D08-8471-EFD0E5B3FB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{954AC6AB-6435-4D08-8471-EFD0E5B3FB87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
