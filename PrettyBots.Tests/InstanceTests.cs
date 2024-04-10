@@ -1,6 +1,8 @@
-using PrettyBots.Environment.Test;
 using PrettyBots.Interactions;
 using PrettyBots.Interactions.Abstraction;
+using PrettyBots.Interactions.Exceptions;
+using PrettyBots.Tests.Environment;
+using PrettyBots.Tests.Environment.Messages;
 
 namespace PrettyBots.Tests;
 
@@ -15,8 +17,17 @@ public class InstanceTests
 
     [Test]
     [TestOf(typeof(InteractionService<>))]
-    public void CreateBasicInstance()
+    public void TestValidInstance_NoSP()
     {
-        IInteractionService service = new InteractionService<TestMessage>();
-    } 
+        IInteractionService service = new TestInteractionService();
+    }
+
+    [Test]
+    public void TestIncorrectEnvironment_NoSP()
+    {
+        Assert.Throws<CriticalServiceException>(() => {
+            IInteractionService service =
+                new InteractionService<UnusedMessage>(TestEnvironment.Instance);
+        });
+    }
 }

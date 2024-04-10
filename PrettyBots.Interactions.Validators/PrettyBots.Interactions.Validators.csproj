@@ -10,7 +10,6 @@
       <ProjectReference Include="..\PrettyBots.Attributes\PrettyBots.Attributes.csproj" />
       <ProjectReference Include="..\PrettyBots.Environment\PrettyBots.Environment.csproj" />
       <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
-      <ProjectReference Include="..\PrettyBots.Interactions\PrettyBots.Interactions.csproj" />
     </ItemGroup>
 
 </Project>

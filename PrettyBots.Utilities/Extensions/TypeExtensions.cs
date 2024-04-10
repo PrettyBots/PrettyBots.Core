@@ -10,6 +10,20 @@ public static class TypeExtensions
     /// </summary>
     public static Type[]? GetParentGenericTypeArguments(this Type type, Type genericParentDefinition)
     {
+        if (genericParentDefinition.IsClass) {
+            Type? @base = type.BaseType;
+            while (@base is not null) {
+                if (@base.IsGenericType && @base.GetGenericTypeDefinition()
+                                                .IsEquivalentTo(genericParentDefinition)) {
+                    return @base.GenericTypeArguments;
+                }
+                
+                @base = @base.BaseType;
+            }
+
+            return null;
+        }
+        
         return type
             .GetInterfaces()
             .FirstOrDefault(i => 

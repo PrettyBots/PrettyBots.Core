@@ -2,10 +2,5 @@
 
 public class ImageResponse : IUserResponse
 {
-    public IEnvironment Environment { get; set; }
-
-    public ImageResponse(IEnvironment environment)
-    {
-        Environment = environment;
-    }
+    public IEnvironment Environment { get; set; } = null!;
 }

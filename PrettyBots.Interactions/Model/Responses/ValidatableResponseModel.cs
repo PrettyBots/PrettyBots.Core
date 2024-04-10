@@ -4,9 +4,9 @@ using PrettyBots.Model.Responses;
 
 namespace PrettyBots.Interactions.Model.Responses;
 
-public class ValidatableResponseModel<TResponse> : BasicResponseModel<TResponse>,
+public class ValidatableResponseModel<TResponse> : BasicResponseModel<TResponse>, 
                                                    IValidatableResponseModel<TResponse>
-    where TResponse : IUserResponse
+    where TResponse : class, IUserResponse
 {
     
     /// <inheritdoc />

@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Environment.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Tests", "PrettyBots.Tests\PrettyBots.Tests.csproj", "{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Tests.Environment", "PrettyBots.Tests.Environment\PrettyBots.Tests.Environment.csproj", "{AE6660C1-BB23-469F-BC81-608D3F818860}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +92,9 @@ Global
 		{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FB06FCC-B1C3-4D23-8FD2-13B1A0AB0DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6660C1-BB23-469F-BC81-608D3F818860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6660C1-BB23-469F-BC81-608D3F818860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6660C1-BB23-469F-BC81-608D3F818860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6660C1-BB23-469F-BC81-608D3F818860}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

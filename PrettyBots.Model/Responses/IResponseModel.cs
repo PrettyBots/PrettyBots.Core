@@ -1,4 +1,6 @@
-﻿namespace PrettyBots.Model.Responses;
+﻿using PrettyBots.Environment;
+
+namespace PrettyBots.Model.Responses;
 
 /// <summary>
 /// Describes the possible response for a specific interaction.
@@ -11,6 +13,10 @@ public interface IResponseModel
     /// </summary>
     public string Key { get; }
     
+    /// <summary>
+    /// Type of the response this model will produce.
+    /// Should implement <see cref="IUserResponse"/> and should be a non-abstract class.
+    /// </summary>
     public Type ResponseType { get; }
     
     /// <summary>

@@ -1,3 +1,4 @@
+using PrettyBots.Environment;
 using PrettyBots.Interactions.Abstraction.Services;
 
 namespace PrettyBots.Interactions.Abstraction;
@@ -12,4 +13,6 @@ public interface IInteractionService
     public ILoadedEntitiesRegistry Registry { get; } 
     
     public IConfigurationService Config { get; }
+    
+    public IEnvironment Environment { get; }
 }

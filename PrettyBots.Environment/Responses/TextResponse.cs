@@ -7,13 +7,7 @@ public class TextResponse : IUserResponse
     /// <summary>
     /// Text from the user message - <see cref="MediaTypeNames.Text"/>.
     /// </summary>
-    public string Text { get; }
+    public string Text { get; } = null!;
 
-    public IEnvironment Environment { get; set; }
-
-    public TextResponse(IEnvironment environment, string text)
-    {
-        Text        = text;
-        Environment = environment;
-    }
+    public IEnvironment Environment { get; set; } = null!;
 }

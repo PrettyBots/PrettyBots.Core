@@ -11,8 +11,8 @@ namespace PrettyBots.Environment.Parsers;
 /// of the environment it operates in.
 /// </remarks>
 public abstract class ResponseParser<TMessage, TResponse> : IResponseParser<TResponse>
-    where TMessage  : IUserMessage
-    where TResponse : IUserResponse
+    where TMessage  : class, IUserMessage
+    where TResponse : class, IUserResponse
 {
     public bool CanParse(IUserMessage message)
     {

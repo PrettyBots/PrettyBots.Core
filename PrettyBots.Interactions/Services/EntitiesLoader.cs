@@ -5,12 +5,12 @@ using Microsoft.Extensions.Logging;
 
 using PrettyBots.Attributes.Common;
 using PrettyBots.Attributes.Parsers;
+using PrettyBots.Attributes.Responses;
 using PrettyBots.Attributes.Validators;
 using PrettyBots.Environment;
 using PrettyBots.Environment.Parsers;
 using PrettyBots.Interactions.Abstraction.Services;
 using PrettyBots.Interactions.Attributes;
-using PrettyBots.Interactions.Attributes.Responses;
 using PrettyBots.Interactions.Builders;
 using PrettyBots.Interactions.Exceptions.Modules;
 using PrettyBots.Interactions.Model.Context;
@@ -31,15 +31,18 @@ public class EntitiesLoader : IEntitiesLoader
         typeof(IInteractionModule).GetTypeInfo();
     
     
+    private readonly IEnvironment _environment;
     private readonly IConfigurationService _config;
     private readonly ILoadedEntitiesRegistry _entitiesRegistry;
     private readonly ILogger<IEntitiesLoader> _logger;
     
     public EntitiesLoader(ILoadedEntitiesRegistry entitiesRegistry, 
-        ILogger<IEntitiesLoader> logger, IConfigurationService config)
+        ILogger<IEntitiesLoader> logger, IConfigurationService config,
+        IEnvironment environment)
     {
         _logger           = logger;
         _config           = config;
+        _environment      = environment;
         _entitiesRegistry = entitiesRegistry;
     }
     
@@ -422,9 +425,10 @@ public class EntitiesLoader : IEntitiesLoader
     }
     
     public GenericLoadingResult<ResponseParserInfo> 
-        LoadResponseParser<TResponse, TParser>(IServiceProvider? serviceProvider = null)
-            where TResponse : class, IUserResponse, new()
-            where TParser : IResponseParser<TResponse>
+        LoadResponseParser<TMessage, TResponse, TParser>(IServiceProvider? serviceProvider = null)
+            where TMessage : class, IUserMessage
+            where TResponse : class, IUserResponse
+            where TParser : ResponseParser<TMessage, TResponse>
     {
         return LoadResponseParser(typeof(TParser), serviceProvider);
     }
@@ -455,15 +459,31 @@ public class EntitiesLoader : IEntitiesLoader
                     exception);
             }
 
+            Type[]? parserGenericArguments = parserType.GetParentGenericTypeArguments(typeof(ResponseParser<,>));
+            if (parserGenericArguments is null) {
+                ParserLoadingException exception = new ParserLoadingException(parserType,
+                    $"Parser should inherit ResponseParser class in order to be loaded");
+
+                HandleSoftLoadingException(exception);
+                return GenericLoadingResult<ResponseParserInfo>.FromFailure(parserType.Name,
+                    exception);
+            }
+
             bool isDefault = parserType.GetCustomAttribute<DefaultParserAttribute>() is not null;
-            Type responseType = parserType
-                .GetInterfaces()
-                .First(i => 
-                    i.IsGenericType &&
-                    i.GetGenericTypeDefinition()
-                     .IsEquivalentTo(typeof(IResponseParser<>)))
-                .GenericTypeArguments[0];
             
+            Type messageType = parserGenericArguments[0];
+            if (!messageType.IsEquivalentTo(_environment.MessageType)) {
+                ParserLoadingException exception = new ParserLoadingException(parserType,
+                    $"Attempt to load parser that is made for messages with type " +
+                    $"{messageType}, but the environment of the service declares " +
+                    $"{_environment.MessageType} as the message type");
+
+                HandleSoftLoadingException(exception);
+                return GenericLoadingResult<ResponseParserInfo>.FromFailure(parserType.Name,
+                    exception);
+            }
+            
+            Type responseType = parserGenericArguments[1];
             if (responseType is not { IsClass: true, IsAbstract: false }) {
                 ParserLoadingException exception = new ParserLoadingException(parserType,
                     $"Type of the response in the parser definition should be an " +

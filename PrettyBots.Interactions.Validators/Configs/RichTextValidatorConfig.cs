@@ -1,5 +1,5 @@
-﻿using PrettyBots.Environment.Responses;
-using PrettyBots.Interactions.Attributes.Responses;
+﻿using PrettyBots.Attributes.Responses;
+using PrettyBots.Environment.Responses;
 using PrettyBots.Interactions.Validators.Abstraction;
 
 namespace PrettyBots.Interactions.Validators.Configs;
@@ -29,8 +29,8 @@ public class RichTextResponseAttribute : ValidatableResponseAttribute
     public uint MinValue { get; set; } = 0;
     public uint MaxValue { get; set; } = RichTextValidatorConfig.TEXT_RESPONSE_MAX_VALUE;
     
-    public RichTextResponseAttribute(string key, Type validatorType, Type? parserType = null) 
-        : base(key, typeof(TextResponse), validatorType, parserType)
+    public RichTextResponseAttribute(string key, Type validatorType) 
+        : base(key, typeof(TextResponse), validatorType)
     {
     }
 

@@ -70,9 +70,10 @@ public interface IEntitiesLoader
             IServiceProvider? serviceProvider = null);
     
     public GenericLoadingResult<ResponseParserInfo>
-        LoadResponseParser<TResponse, TParser>(IServiceProvider? serviceProvider = null)
-        where TResponse : class, IUserResponse, new()
-        where TParser : IResponseParser<TResponse>;
+        LoadResponseParser<TMessage, TResponse, TParser>(IServiceProvider? serviceProvider = null)
+        where TMessage : class, IUserMessage
+        where TResponse : class, IUserResponse
+        where TParser : ResponseParser<TMessage, TResponse>;
 
     public GenericMultipleLoadingResult<ResponseValidatorInfo> LoadResponseValidators(
         Assembly validatorsAssembly,
