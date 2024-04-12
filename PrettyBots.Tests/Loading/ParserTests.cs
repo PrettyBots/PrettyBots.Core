@@ -24,6 +24,7 @@ public class ParserTests : BaseLoadingTests
         nameof(ValidDefaultTestResponseParser),
         nameof(ValidAdditionalParser),
         nameof(ValidGenericParser),
+        nameof(ValidImageParser),
     };
     
     private static readonly string[] _invalidParserNames = {

@@ -234,25 +234,35 @@ public class EntitiesLoader : IEntitiesLoader
                 }
                 
                 Type firstParamType = handlerParams[0].ParameterType;
-                if (!firstParamType.IsGenericType 
-                    || firstParamType.GenericTypeArguments.Length == 0 
-                    || !firstParamType
-                        .GetGenericTypeDefinition()
+                if (!firstParamType.IsGenericType || !firstParamType.GetGenericTypeDefinition()
                         .IsEquivalentTo(typeof(IInteractionContext<,>))) {
                     HandlerLoadingException exception = new HandlerLoadingException(moduleInfo.Type,
-                        methodInfo, 
-                        "The first handler parameter should be of the IInteractionContext<> type");
+                        methodInfo, "The first handler parameter should be of the " +
+                                    "IInteractionContext<> type");
 
                     HandleSoftLoadingException(exception);
                     handlerInfosBuildingResult.Add(GenericLoadingResult<InteractionHandlerInfo>.FromFailure(methodInfo.Name, exception));
                     continue;
                 }
 
-                if (firstParamType.GenericTypeArguments[0].IsEquivalentTo(typeof(IUserResponse))) {
+                Type[] contextTypeArguments = firstParamType.GenericTypeArguments;
+                if (!contextTypeArguments.First().IsEquivalentTo(_environment.MessageType)) {
+                    HandlerLoadingException exception = new HandlerLoadingException(moduleInfo.Type,
+                        methodInfo, "The first handler parameter was the "                                 +
+                        $"interaction context for the messages with type {contextTypeArguments.First()}, " +
+                        $"but the environment declared to use {_environment.MessageType} as "              +
+                        $"the message type");
+
+                    HandleSoftLoadingException(exception);
+                    handlerInfosBuildingResult.Add(GenericLoadingResult<InteractionHandlerInfo>.FromFailure(methodInfo.Name, exception));
+                    continue;
+                }
+
+                if (contextTypeArguments[1].IsEquivalentTo(typeof(IUserResponse))) {
                     acceptsSpecificContext = false;
                 } else {
                     acceptsSpecificContext      = true;
-                    specificContextResponseType = firstParamType.GenericTypeArguments[0];
+                    specificContextResponseType = contextTypeArguments[1];
                 }
 
                 if (acceptsSpecificContext && (

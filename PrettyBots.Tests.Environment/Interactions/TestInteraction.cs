@@ -4,6 +4,10 @@ public enum TestInteraction : uint
 {
     NotDefinedI,
     
+    BMI1,
+    BMI2,
+    BMI3,
+    
     I1,
     I2,
     I3,

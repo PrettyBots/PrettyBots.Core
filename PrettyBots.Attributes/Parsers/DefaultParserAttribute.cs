@@ -8,7 +8,7 @@ namespace PrettyBots.Attributes.Parsers;
 /// <see cref="IResponseModel"/> doesn't specify the
 /// <see cref="IResponseModel.ResponseParserType"/>
 /// </summary>
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage(AttributeTargets.Class, Inherited = false)]
 public class DefaultParserAttribute : Attribute
 {   
 }
