@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PrettyBots.Interactions\PrettyBots.Interactions.csproj" />
+      <ProjectReference Include="..\PrettyBots.Storages.Json\PrettyBots.Storages.Json.csproj" />
       <ProjectReference Include="..\PrettyBots.Tests.Environment\PrettyBots.Tests.Environment.csproj" />
     </ItemGroup>
 

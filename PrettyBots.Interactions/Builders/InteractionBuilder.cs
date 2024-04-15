@@ -1,7 +1,7 @@
 ﻿using PrettyBots.Environment;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Builders.InteractionResponses;
 using PrettyBots.Interactions.Model;
-using PrettyBots.Model.Responses;
 
 namespace PrettyBots.Interactions.Builders;
 

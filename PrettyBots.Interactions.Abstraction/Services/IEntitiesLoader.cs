@@ -2,11 +2,11 @@
 
 using PrettyBots.Environment;
 using PrettyBots.Environment.Parsers;
+using PrettyBots.Interactions.Abstraction.Model;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Model;
-using PrettyBots.Model.Descriptors;
-using PrettyBots.Model.Descriptors.Loading;
-using PrettyBots.Model.Descriptors.Loading.Abstraction;
 
 namespace PrettyBots.Interactions.Abstraction.Services;
 

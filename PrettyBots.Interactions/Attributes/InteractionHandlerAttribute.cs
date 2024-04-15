@@ -1,6 +1,6 @@
 ﻿using PrettyBots.Environment;
-using PrettyBots.Interactions.Model.Context;
-using PrettyBots.Model.Descriptors.Config;
+using PrettyBots.Interactions.Abstraction.Model.Context;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;
 
 namespace PrettyBots.Interactions.Attributes;
 

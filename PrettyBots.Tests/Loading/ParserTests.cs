@@ -1,7 +1,7 @@
 ﻿using PrettyBots.Environment.Responses;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Interactions.Services;
-using PrettyBots.Model.Descriptors;
-using PrettyBots.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Tests.Environment.Messages;
 using PrettyBots.Tests.Environment.Parsers;
 using PrettyBots.Tests.Environment.Parsers.Generic;

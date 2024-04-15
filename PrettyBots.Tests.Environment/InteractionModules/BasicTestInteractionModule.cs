@@ -2,11 +2,11 @@
 
 using PrettyBots.Environment;
 using PrettyBots.Environment.Responses;
+using PrettyBots.Interactions.Abstraction.Model;
+using PrettyBots.Interactions.Abstraction.Model.Context;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;
 using PrettyBots.Interactions.Attributes;
 using PrettyBots.Interactions.Builders;
-using PrettyBots.Interactions.Model.Context;
-using PrettyBots.Model;
-using PrettyBots.Model.Descriptors.Config;
 using PrettyBots.Tests.Environment.Interactions;
 using PrettyBots.Tests.Environment.Messages;
 using PrettyBots.Tests.Environment.Services;
@@ -95,7 +95,7 @@ public class BasicTestInteractionModule : IInteractionModule
     /// Tests handler with too many parameters.
     /// </summary>
     [InteractionHandler((uint)TestInteraction.BMI1, HandlerRunMode.RunSync)]
-    public void InvalidArgumentsTypeHandler1(IInteractionContext<TestMessage, TextResponse> context,
+    public async Task InvalidArgumentsTypeHandler1(IInteractionContext<TestMessage, TextResponse> context,
         CancellationToken token = default, string s = "")
     {
         
@@ -115,8 +115,7 @@ public class BasicTestInteractionModule : IInteractionModule
     /// Tests handler with invalid first parameter (not context).
     /// </summary>
     [InteractionHandler((uint)TestInteraction.BMI1, HandlerRunMode.RunSync)]
-    public void InvalidArgumentsTypeHandler3(List<TextResponse> context,
-        CancellationToken token = default)
+    public void InvalidArgumentsTypeHandler3(List<TextResponse> context)
     {
         
     }
@@ -125,8 +124,7 @@ public class BasicTestInteractionModule : IInteractionModule
     /// Tests handler with invalid first parameter (strong type doesn't match with interaction).
     /// </summary>
     [InteractionHandler((uint)TestInteraction.BMI1, HandlerRunMode.RunSync)]
-    public void InvalidArgumentsTypeHandler4(IInteractionContext<TestMessage, ImageResponse> context,
-        CancellationToken token = default)
+    public void InvalidArgumentsTypeHandler4(IInteractionContext<TestMessage, ImageResponse> context)
     {
         
     }
@@ -135,8 +133,7 @@ public class BasicTestInteractionModule : IInteractionModule
     /// Tests handler with invalid first parameter (strong type used on multiple-type response).
     /// </summary>
     [InteractionHandler((uint)TestInteraction.BMI2, HandlerRunMode.RunSync)]
-    public void InvalidArgumentsTypeHandler5(IInteractionContext<TestMessage, ImageResponse> context,
-        CancellationToken token = default)
+    public void InvalidArgumentsTypeHandler5(IInteractionContext<TestMessage, ImageResponse> context)
     {
         
     }
@@ -145,18 +142,26 @@ public class BasicTestInteractionModule : IInteractionModule
     /// Tests invalid sync handler with context set to incorrect message type.
     /// </summary>
     [InteractionHandler((int)TestInteraction.BMI1, HandlerRunMode.RunSync)]
-    public void InvalidArgumentsTypeHandler6(IInteractionContext<UnusedMessage, TextResponse> context,
+    public void InvalidArgumentsTypeHandler6(IInteractionContext<UnusedMessage, TextResponse> context)
+    {
+        
+    }
+    
+    /// <summary>
+    /// Tests invalid sync handler with cancellation token.
+    /// </summary>
+    [InteractionHandler((int)TestInteraction.BMI1, HandlerRunMode.RunSync)]
+    public void InvalidArgumentsTypeHandler7(IInteractionContext<TestMessage, IUserResponse> context,
         CancellationToken token = default)
     {
         
     }
     
     /// <summary>
-    /// Tests valid sync handler (type is strong).
+    /// Tests valid async handler without cancellation token (type is strong).
     /// </summary>
     [InteractionHandler((int)TestInteraction.BMI1, HandlerRunMode.RunSync)]
-    public void ValidHandler1(IInteractionContext<TestMessage, TextResponse> context,
-        CancellationToken token = default)
+    public async Task ValidHandler1(IInteractionContext<TestMessage, TextResponse> context)
     {
         
     }
@@ -166,8 +171,7 @@ public class BasicTestInteractionModule : IInteractionModule
     /// interaction that already has loaded handler. 
     /// </summary>
     [InteractionHandler((int)TestInteraction.BMI1, HandlerRunMode.RunSync)]
-    public void InvalidDuplicateHandler(IInteractionContext<TestMessage, TextResponse> context,
-        CancellationToken token = default)
+    public void InvalidDuplicateHandler(IInteractionContext<TestMessage, TextResponse> context)
     {
         
     }
@@ -176,17 +180,17 @@ public class BasicTestInteractionModule : IInteractionModule
     /// Tests valid sync handler (type is dynamic).
     /// </summary>
     [InteractionHandler((int)TestInteraction.BMI2, HandlerRunMode.RunAsync)]
-    public void ValidHandler2(IInteractionContext<TestMessage, IUserResponse> context,
-        CancellationToken token = default)
+    public void ValidHandler2(IInteractionContext<TestMessage, IUserResponse> context)
     {
         
     }
     
     /// <summary>
-    /// Tests valid async not cancellable handler (type is strong).
+    /// Tests valid async cancellable handler (type is strong).
     /// </summary>
     [InteractionHandler((int)TestInteraction.BMI3)]
-    public async Task ValidHandler3(IInteractionContext<TestMessage, ImageResponse> context)
+    public async Task ValidHandler3(IInteractionContext<TestMessage, ImageResponse> context,
+        CancellationToken token = default)
     {
         
     }

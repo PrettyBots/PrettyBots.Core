@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj" />
-      <ProjectReference Include="..\PrettyBots.Model\PrettyBots.Model.csproj" />
+      <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Utilities\PrettyBots.Utilities.csproj" />
     </ItemGroup>
 

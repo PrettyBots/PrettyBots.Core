@@ -2,10 +2,9 @@
 
 using PrettyBots.Environment;
 using PrettyBots.Environment.Parsers;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Model.Responses;
 using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Model.Responses;
-using PrettyBots.Storages.Abstraction.Model;
 
 namespace PrettyBots.Interactions.Builders.InteractionResponses;
 

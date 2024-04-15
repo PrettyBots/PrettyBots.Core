@@ -1,4 +1,4 @@
-﻿using PrettyBots.Model;
+﻿using PrettyBots.Interactions.Abstraction.Model;
 
 namespace PrettyBots.Interactions.Exceptions.Modules;
 

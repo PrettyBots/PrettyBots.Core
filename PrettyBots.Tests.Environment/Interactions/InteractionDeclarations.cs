@@ -1,9 +1,7 @@
 ﻿using PrettyBots.Environment.Responses;
+using PrettyBots.Interactions.Abstraction.Model;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Builders;
-using PrettyBots.Interactions.Builders.InteractionResponses;
-using PrettyBots.Model;
-using PrettyBots.Model.Responses;
-using PrettyBots.Tests.Environment.Messages;
 using PrettyBots.Tests.Environment.Parsers.Generic;
 using PrettyBots.Tests.Environment.Parsers.Valid;
 using PrettyBots.Tests.Environment.Responses;

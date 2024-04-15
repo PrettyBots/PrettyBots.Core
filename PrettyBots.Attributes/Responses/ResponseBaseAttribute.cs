@@ -1,5 +1,5 @@
-﻿using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Model.Responses;
+﻿using PrettyBots.Interactions.Abstraction.Model.Responses;
+using PrettyBots.Interactions.Validators.Abstraction;
 
 namespace PrettyBots.Attributes.Responses;
 

@@ -9,18 +9,19 @@ using PrettyBots.Attributes.Responses;
 using PrettyBots.Attributes.Validators;
 using PrettyBots.Environment;
 using PrettyBots.Environment.Parsers;
+using PrettyBots.Interactions.Abstraction.Model;
+using PrettyBots.Interactions.Abstraction.Model.Context;
+using PrettyBots.Interactions.Abstraction.Model.Delegates;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Abstraction.Services;
 using PrettyBots.Interactions.Attributes;
 using PrettyBots.Interactions.Builders;
 using PrettyBots.Interactions.Exceptions.Modules;
-using PrettyBots.Interactions.Model.Context;
 using PrettyBots.Interactions.Utilities.DependencyInjection;
 using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Model;
-using PrettyBots.Model.Descriptors;
-using PrettyBots.Model.Descriptors.Loading;
-using PrettyBots.Model.Descriptors.Loading.Abstraction;
-using PrettyBots.Model.Responses;
 using PrettyBots.Utilities.Extensions;
 
 namespace PrettyBots.Interactions.Services;
@@ -281,11 +282,21 @@ public class EntitiesLoader : IEntitiesLoader
                     handlerInfosBuildingResult.Add(GenericLoadingResult<InteractionHandlerInfo>.FromFailure(methodInfo.Name, exception));
                     continue;
                 }
+
+                if (!isAsync && isCancellable) {
+                    HandlerLoadingException exception = new HandlerLoadingException(moduleInfo.Type,
+                        methodInfo, "Sync handlers can't contain cancellation token as the second parameter");
+
+                    HandleSoftLoadingException(exception);
+                    handlerInfosBuildingResult.Add(GenericLoadingResult<InteractionHandlerInfo>.FromFailure(methodInfo.Name, exception));
+                    continue;
+                }
                 
                 InteractionHandlerInfo handlerInfo = new InteractionHandlerInfo(
                     handlerAttribute.InteractionId, handlerAttribute.RunMode, methodInfo, moduleInfo,
-                    acceptsSpecificContext, isAsync, isCancellable, specificContextResponseType);
-
+                    _environment.MessageType, acceptsSpecificContext, isAsync, isCancellable, 
+                    specificContextResponseType);
+                
                 loadedHandlers.Add(handlerInfo);
                 currentHandlerInteractionInfo.HandlerInfo = handlerInfo;
                 handlerInfosBuildingResult.Add(GenericLoadingResult<InteractionHandlerInfo>.FromSuccess(handlerInfo.Name, handlerInfo));

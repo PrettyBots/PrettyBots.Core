@@ -1,17 +1,17 @@
-﻿using System.Net.Mime;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-using Microsoft.Extensions.DependencyInjection;
-
+using PrettyBots.Environment;
 using PrettyBots.Environment.Responses;
+using PrettyBots.Interactions.Abstraction.Model.Context;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Exceptions.Modules;
 using PrettyBots.Interactions.Services;
 using PrettyBots.Interactions.Validators;
 using PrettyBots.Interactions.Validators.Configs;
-using PrettyBots.Model.Responses;
-using PrettyBots.Model.Descriptors;
-using PrettyBots.Model.Descriptors.Config;
-using PrettyBots.Model.Descriptors.Loading;
-using PrettyBots.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Tests.Environment.InteractionModules;
 using PrettyBots.Tests.Environment.Interactions;
 using PrettyBots.Tests.Environment.Parsers.Valid;
@@ -48,6 +48,7 @@ public class ModuleTests : BaseLoadingTests
         nameof(BasicTestInteractionModule.InvalidArgumentsTypeHandler4),
         nameof(BasicTestInteractionModule.InvalidArgumentsTypeHandler5),
         nameof(BasicTestInteractionModule.InvalidArgumentsTypeHandler6),
+        nameof(BasicTestInteractionModule.InvalidArgumentsTypeHandler7),
         nameof(BasicTestInteractionModule.InvalidDuplicateHandler),
     };
     
@@ -158,22 +159,22 @@ public class ModuleTests : BaseLoadingTests
             .First(i => i.Name == nameof(BasicTestInteractionModule.ValidHandler3));
         
         Assert.That(validHandler1.RunMode, Is.EqualTo(HandlerRunMode.RunSync));
-        Assert.That(validHandler1.IsAsync, Is.False);
-        Assert.That(validHandler1.IsCancellable, Is.True);
+        Assert.That(validHandler1.ExecutionContext.IsAsync, Is.True);
+        Assert.That(validHandler1.ExecutionContext.IsCancellable, Is.False);
         Assert.That(validHandler1.InteractionId, Is.EqualTo((uint)TestInteraction.BMI1));
         Assert.That(validHandler1.AcceptsSpecificContext, Is.True);
         Assert.That(validHandler1.SpecificContextResponseType!.IsEquivalentTo(typeof(TextResponse)));
         
         Assert.That(validHandler2.RunMode, Is.EqualTo(HandlerRunMode.RunAsync));
-        Assert.That(validHandler2.IsAsync, Is.False);
-        Assert.That(validHandler2.IsCancellable, Is.True);
+        Assert.That(validHandler2.ExecutionContext.IsAsync, Is.False);
+        Assert.That(validHandler2.ExecutionContext.IsCancellable, Is.False);
         Assert.That(validHandler2.InteractionId, Is.EqualTo((uint)TestInteraction.BMI2));
         Assert.That(validHandler2.AcceptsSpecificContext, Is.False);
         Assert.That(validHandler2.SpecificContextResponseType, Is.Null);
         
         Assert.That(validHandler3.RunMode, Is.EqualTo(HandlerRunMode.Default));
-        Assert.That(validHandler3.IsAsync, Is.True);
-        Assert.That(validHandler3.IsCancellable, Is.False);
+        Assert.That(validHandler3.ExecutionContext.IsAsync, Is.True);
+        Assert.That(validHandler3.ExecutionContext.IsCancellable, Is.True);
         Assert.That(validHandler3.InteractionId, Is.EqualTo((uint)TestInteraction.BMI3));
         Assert.That(validHandler3.AcceptsSpecificContext, Is.True);
         Assert.That(validHandler3.SpecificContextResponseType!.IsEquivalentTo(typeof(ImageResponse)));

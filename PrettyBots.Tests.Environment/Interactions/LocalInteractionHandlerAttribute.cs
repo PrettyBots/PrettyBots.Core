@@ -1,5 +1,5 @@
-﻿using PrettyBots.Interactions.Attributes;
-using PrettyBots.Model.Descriptors.Config;
+﻿using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;
+using PrettyBots.Interactions.Attributes;
 
 namespace PrettyBots.Tests.Environment.Interactions;
 

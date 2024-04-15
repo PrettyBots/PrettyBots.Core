@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 
 using PrettyBots.Environment;
-using PrettyBots.Model;
-using PrettyBots.Model.Responses;
+using PrettyBots.Interactions.Abstraction.Model;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 
 namespace PrettyBots.Interactions.Model;
 

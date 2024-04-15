@@ -1,8 +1,8 @@
 ﻿using PrettyBots.Attributes.Responses;
 using PrettyBots.Environment;
 using PrettyBots.Environment.Responses;
+using PrettyBots.Interactions.Abstraction.Model.Context;
 using PrettyBots.Interactions.InteractionHandlers;
-using PrettyBots.Interactions.Model.Context;
 using PrettyBots.Interactions.Validators;
 using PrettyBots.Interactions.Validators.Configs;
 using PrettyBots.Tests.Environment.Interactions;

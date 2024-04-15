@@ -1,5 +1,5 @@
 ﻿using PrettyBots.Environment;
-using PrettyBots.Model.Responses;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 
 namespace PrettyBots.Interactions.Builders.InteractionResponses;
 

@@ -1,6 +1,6 @@
 ﻿using PrettyBots.Environment;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Model.Responses;
 
 namespace PrettyBots.Interactions.Model.Responses;
 

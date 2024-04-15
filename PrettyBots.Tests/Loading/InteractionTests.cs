@@ -1,8 +1,8 @@
 ﻿using PrettyBots.Environment.Responses;
+using PrettyBots.Interactions.Abstraction.Model;
+using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
+using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Services;
-using PrettyBots.Model;
-using PrettyBots.Model.Descriptors.Loading.Abstraction;
-using PrettyBots.Model.Responses;
 using PrettyBots.Tests.Environment.Interactions;
 using PrettyBots.Tests.Environment.Parsers.Valid;
 using PrettyBots.Tests.Environment.Responses;

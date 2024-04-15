@@ -1,9 +1,9 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.ObjectModel;
 
+using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Services;
 using PrettyBots.Interactions.Exceptions.Modules;
-using PrettyBots.Model.Descriptors;
 using PrettyBots.Utilities.Collections;
 
 namespace PrettyBots.Interactions.Services;

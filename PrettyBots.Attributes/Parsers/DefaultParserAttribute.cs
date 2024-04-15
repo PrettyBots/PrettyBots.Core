@@ -1,4 +1,4 @@
-﻿using PrettyBots.Model.Responses;
+﻿using PrettyBots.Interactions.Abstraction.Model.Responses;
 
 namespace PrettyBots.Attributes.Parsers;
 
