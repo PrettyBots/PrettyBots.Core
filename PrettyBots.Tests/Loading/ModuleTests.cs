@@ -2,6 +2,7 @@
 
 using PrettyBots.Environment;
 using PrettyBots.Environment.Responses;
+using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Abstraction.Model.Context;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;
@@ -11,7 +12,8 @@ using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Exceptions.Modules;
 using PrettyBots.Interactions.Services;
 using PrettyBots.Interactions.Validators;
-using PrettyBots.Interactions.Validators.Configs;
+using PrettyBots.Interactions.Validators.Text;
+using PrettyBots.Interactions.Validators.Text.Configs;
 using PrettyBots.Tests.Environment.InteractionModules;
 using PrettyBots.Tests.Environment.Interactions;
 using PrettyBots.Tests.Environment.Parsers.Valid;

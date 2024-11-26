@@ -2,7 +2,7 @@
 using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Validators.Abstraction;
 
-namespace PrettyBots.Attributes.Responses;
+namespace PrettyBots.Attributes.Responses.Basic;
 
 /// <summary>
 /// Adds the basic response as an available response for an interaction.
@@ -10,7 +10,7 @@ namespace PrettyBots.Attributes.Responses;
 /// providing the response type and the optional parser.
 /// </summary>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-public sealed class BasicResponseAttribute : ResponseBaseAttribute
+public class BasicResponseAttribute : ResponseBaseAttribute
 {
     /// <summary>
     /// Registers a response.

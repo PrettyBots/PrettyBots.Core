@@ -2,6 +2,7 @@
 
 using PrettyBots.Environment;
 using PrettyBots.Environment.Responses;
+using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Abstraction.Model;
 using PrettyBots.Interactions.Abstraction.Model.Context;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;

@@ -1,5 +1,7 @@
-﻿using PrettyBots.Environment;
+﻿
+using PrettyBots.Environment;
 using PrettyBots.Interactions.Validators.Abstraction.Exceptions;
+using PrettyBots.Interactions.Validators.Abstraction.Model;
 
 namespace PrettyBots.Interactions.Validators.Abstraction;
 
@@ -10,7 +12,7 @@ namespace PrettyBots.Interactions.Validators.Abstraction;
 /// </summary>
 public interface IResponseValidator
 {
-    public ValueTask<bool> ValidateResponseAsync(IUserResponse response, IValidatorConfig config);
+    public ValueTask<ValidationResult> ValidateResponseAsync(IUserResponse response, IValidatorConfig config);
 }
 
 /// <summary>
@@ -37,6 +39,6 @@ public interface IResponseValidator<in TResponse> : IResponseValidator
     /// <exception cref="ConfigurationNotSupportedException{TResponse}">
     /// Is occurred when this validator cannot handle the provided config type.
     /// </exception>
-    public ValueTask<bool> ValidateResponseAsync(TResponse response, IValidatorConfig config);
+    public ValueTask<ValidationResult> ValidateResponseAsync(TResponse response, IValidatorConfig config);
 }
 

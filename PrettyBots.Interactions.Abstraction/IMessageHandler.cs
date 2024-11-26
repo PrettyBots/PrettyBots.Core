@@ -1,4 +1,5 @@
 using PrettyBots.Environment;
+using PrettyBots.Interactions.Abstraction.EventHandlers;
 
 namespace PrettyBots.Interactions.Abstraction;
 
@@ -8,5 +9,7 @@ namespace PrettyBots.Interactions.Abstraction;
 public interface IMessageHandler<in TMessage>
     where TMessage : class, IUserMessage
 {
-    public Task HandleUserMessage(TMessage message, CancellationToken token = default);
+    public Task HandleUserMessageAsync(TMessage message, CancellationToken token = default);
+
+    public event IncorrectUserMessageEventHandler OnIncorrectUserMessage;
 }

@@ -1,4 +1,6 @@
-﻿namespace PrettyBots.Storages.Abstraction;
+﻿using PrettyBots.Storages.Abstraction.Model;
+
+namespace PrettyBots.Storages.Abstraction;
 
 /// <summary>
 /// Service that controls the storage in which
@@ -24,4 +26,8 @@ public interface IStorageProvider : IDisposable
     /// if the value hasn't been set for this user yet.
     /// </returns>
     public Task<uint?> RetrieveInteractionIdAsync(long userId, CancellationToken token = default);
+
+    public Task<IUser?> RetrieveUserDataAsync(long userId, CancellationToken token = default);
+
+    public Task StoreInteractionDataAsync(long userId, string? data, CancellationToken token = default);
 }

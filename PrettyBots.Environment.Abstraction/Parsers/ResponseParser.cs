@@ -1,5 +1,7 @@
 using MorseCode.ITask;
 
+using PrettyBots.Environment.Parsers.Model;
+
 namespace PrettyBots.Environment.Parsers;
 
 /// <summary>
@@ -19,8 +21,8 @@ public abstract class ResponseParser<TMessage, TResponse> : IResponseParser<TRes
         return CanParse((TMessage)message);
     }
 
-    public ITask<TResponse> ParseResponseAsync(IUserMessage message, 
-        CancellationToken token = default)
+    public ITask<ParsingResult> ParseResponseAsync(IUserMessage message, 
+        CancellationToken                                                  token = default)
     {
         return ParseResponseAsync((TMessage)message, token);
     }
@@ -29,6 +31,6 @@ public abstract class ResponseParser<TMessage, TResponse> : IResponseParser<TRes
     protected abstract bool CanParse(TMessage message);
 
     /// <inheritdoc cref="ParseResponseAsync"/> 
-    protected abstract ITask<TResponse> ParseResponseAsync(TMessage message,
+    protected abstract ITask<ParsingResult> ParseResponseAsync(TMessage message,
         CancellationToken token = default);
 }

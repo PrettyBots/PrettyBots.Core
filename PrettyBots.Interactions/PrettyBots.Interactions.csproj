@@ -14,6 +14,7 @@
       <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Interactions.Validators\PrettyBots.Interactions.Validators.csproj" />
       <ProjectReference Include="..\PrettyBots.Storages.Abstraction\PrettyBots.Storages.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Storages.Json\PrettyBots.Storages.Json.csproj" />
     </ItemGroup>
 
     <ItemGroup>

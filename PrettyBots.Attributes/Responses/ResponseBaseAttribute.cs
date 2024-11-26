@@ -24,7 +24,11 @@ public abstract class ResponseBaseAttribute : Attribute
 
     public virtual IResponseModel CreateModel()
     {
-        return new DynamicallyTypedResponseModel(Key, ResponseType, 
+        if (ValidatorType is null) {
+            return new DynamicallyTypedResponseModel(Key, ResponseType, ParserType);
+        }
+        
+        return new DynamicallyTypedValidatableResponseModel(Key, ResponseType, 
                 ParserType, ValidatorType, null, CreateConfig())
             .CreateInstanceOfGenericType();
     }

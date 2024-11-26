@@ -10,8 +10,10 @@ namespace PrettyBots.Storages.Json;
 public class BasicUser : IUser
 {
     [JsonProperty("userId")]
-    public long UserId { get; set; } = default!;
+    public long TelegramUserId { get; set; } = default!;
     
     [JsonProperty("currentInteractionId")]
     public uint CurrentInteractionId { get; set; } = default;
+
+    public string? InteractionData { get; set; }
 }

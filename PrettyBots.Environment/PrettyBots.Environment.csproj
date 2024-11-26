@@ -10,4 +10,8 @@
       <ProjectReference Include="..\PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
 </Project>

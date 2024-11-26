@@ -74,7 +74,7 @@ public class JsonStorageProvider<TUser> : IStorageProvider, IRequireInitializati
             if (Users.TryGetValue(userId, out TUser? user)) {
                 user.CurrentInteractionId = interactionId;
             } else {
-                TUser entity = new TUser { UserId = userId, CurrentInteractionId = interactionId };
+                TUser entity = new TUser { TelegramUserId = userId, CurrentInteractionId = interactionId };
                 Users.TryAdd(userId, entity);
             }
 
@@ -96,6 +96,13 @@ public class JsonStorageProvider<TUser> : IStorageProvider, IRequireInitializati
             ? Task.FromResult((uint?)user.CurrentInteractionId) 
             : Task.FromResult<uint?>(null);
     }
+
+    public Task<IUser?> RetrieveUserDataAsync(long userId, CancellationToken token = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task StoreInteractionDataAsync(long userId, string? data, CancellationToken token = default) { throw new NotImplementedException(); }
 
     public async Task SaveChangesAsync(CancellationToken token = default)
     {

@@ -9,7 +9,7 @@ public interface IUser
     /// Specifies the id of the user of the bot,
     /// whether it is the user, or the chat.
     /// </summary>
-    public long UserId { get; set; }
+    public long TelegramUserId { get; set; }
     
     /// <summary>
     /// Specifies the id of the interaction that is currently
@@ -18,4 +18,6 @@ public interface IUser
     /// the next user response.
     /// </summary>
     public uint CurrentInteractionId { get; set; }
+
+    public string? InteractionData { get; set; }
 }

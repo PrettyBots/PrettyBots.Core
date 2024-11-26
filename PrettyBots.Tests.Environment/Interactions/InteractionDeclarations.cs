@@ -1,4 +1,5 @@
 ﻿using PrettyBots.Environment.Responses;
+using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Abstraction.Model;
 using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Builders;
@@ -109,7 +110,7 @@ public static class InteractionDeclarations
         // Interaction that has the config type incorrect for generic parameter.
         InteractionBuilder<TestInteraction>
             .WithId(TestInteraction.I8)
-            .WithResponse(new DynamicallyTypedResponseModel("test", typeof(TestResponse), 
+            .WithResponse(new DynamicallyTypedValidatableResponseModel("test", typeof(TestResponse), 
                 typeof(ValidTestResponseParser), typeof(ValidGenericValidator),
                 null, new ImageTestConfig()))
             .Build(),
@@ -117,7 +118,7 @@ public static class InteractionDeclarations
         // Interaction that has the config type that validator does not accept as a config.
         InteractionBuilder<TestInteraction>
             .WithId(TestInteraction.I9)
-            .WithResponse(new DynamicallyTypedResponseModel("test", typeof(AbstractResponseImpl), 
+            .WithResponse(new DynamicallyTypedValidatableResponseModel("test", typeof(AbstractResponseImpl), 
                 typeof(ValidGenericParser), typeof(ValidAcceptMultipleValidator),
                 null, new TestConfig()))
             .Build(),

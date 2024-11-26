@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Tests", "PrettyB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Tests.Environment", "PrettyBots.Tests.Environment\PrettyBots.Tests.Environment.csproj", "{AE6660C1-BB23-469F-BC81-608D3F818860}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Environment.Telegram", "PrettyBots.Environment.Telegram\PrettyBots.Environment.Telegram.csproj", "{A2E93C87-5E0E-4B8A-9107-5290D9E18D6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Interactions.Telegram", "PrettyBots.Interactions.Telegram\PrettyBots.Interactions.Telegram.csproj", "{A3AF7630-F1CA-4F58-A739-C8CAE6558815}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +88,13 @@ Global
 		{AE6660C1-BB23-469F-BC81-608D3F818860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE6660C1-BB23-469F-BC81-608D3F818860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE6660C1-BB23-469F-BC81-608D3F818860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E93C87-5E0E-4B8A-9107-5290D9E18D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E93C87-5E0E-4B8A-9107-5290D9E18D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E93C87-5E0E-4B8A-9107-5290D9E18D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E93C87-5E0E-4B8A-9107-5290D9E18D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AF7630-F1CA-4F58-A739-C8CAE6558815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AF7630-F1CA-4F58-A739-C8CAE6558815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AF7630-F1CA-4F58-A739-C8CAE6558815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AF7630-F1CA-4F58-A739-C8CAE6558815}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

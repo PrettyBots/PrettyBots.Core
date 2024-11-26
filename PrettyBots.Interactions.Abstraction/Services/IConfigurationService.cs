@@ -8,4 +8,5 @@ public interface IConfigurationService
     /// yet accumulates errors in the loading results.
     /// </summary>
     public bool StrictLoadingModeEnabled { get; set; }
+    public bool StrictHandlingModeEnabled { get; set; }
 }

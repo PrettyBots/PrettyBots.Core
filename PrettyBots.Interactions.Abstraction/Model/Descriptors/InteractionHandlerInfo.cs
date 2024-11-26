@@ -41,17 +41,22 @@ public class InteractionHandlerInfo
     /// should be equal to the environment message type. 
     /// </summary>
     public Type ContextMessageType { get; }
-    
+
+    public Type UserType { get; }
+
     /// <inheritdoc cref="HandlerExecutionContext"/>
     public HandlerExecutionContext ExecutionContext { get; }
-    
+
+
+  
     public InteractionHandlerInfo(uint interactionId, HandlerRunMode runMode, 
-        MethodInfo methodInfo, InteractionModuleInfo module, Type contextMessageType, 
+        MethodInfo methodInfo, InteractionModuleInfo module, Type contextMessageType, Type userType, 
         bool acceptsSpecificContext = false, bool isAsync = false, bool isCancellable = false, 
         Type? specificContextResponseType = null)
     {
         Module                      = module;
         RunMode                     = runMode;
+        UserType                    = userType;
         MethodInfo                  = methodInfo;
         InteractionId               = interactionId;
         ContextMessageType          = contextMessageType;
@@ -60,14 +65,14 @@ public class InteractionHandlerInfo
         
         if (!AcceptsSpecificContext) {
             ExecutionContext = (HandlerExecutionContext)Activator.CreateInstance(
-                typeof(HandlerExecutionContext<,>).MakeGenericType(contextMessageType, 
+                typeof(HandlerExecutionContext<,,>).MakeGenericType(contextMessageType, UserType,
                     typeof(IUserResponse)), module.Instance, methodInfo, isAsync, 
                 isCancellable)!;
             return;
         }
         
         ExecutionContext = (HandlerExecutionContext)Activator.CreateInstance(
-            typeof(HandlerExecutionContext<,>).MakeGenericType(contextMessageType, 
+            typeof(HandlerExecutionContext<,,>).MakeGenericType(contextMessageType, UserType,
                 SpecificContextResponseType), module.Instance, methodInfo, isAsync, 
             isCancellable)!;
     }

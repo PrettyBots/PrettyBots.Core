@@ -2,6 +2,7 @@
 
 using PrettyBots.Attributes.Parsers;
 using PrettyBots.Environment.Responses;
+using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Tests.Environment.Messages;
 
 namespace PrettyBots.Tests.Environment.Parsers.Valid;

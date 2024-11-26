@@ -1,8 +1,8 @@
 ﻿using System.Net.Mime;
 
-namespace PrettyBots.Environment.Responses;
+namespace PrettyBots.Environment.Responses.TextBased;
 
-public class TextResponse : IUserResponse
+public class TextResponse : ITextBasedResponse
 {
     /// <summary>
     /// Text from the user message - <see cref="MediaTypeNames.Text"/>.
@@ -10,4 +10,9 @@ public class TextResponse : IUserResponse
     public string Text { get; } = null!;
 
     public IEnvironment Environment { get; set; } = null!;
+
+    public TextResponse(string text)
+    {
+        Text = text;
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using PrettyBots.Environment;
+using PrettyBots.Storages.Abstraction.Model;
 
 namespace PrettyBots.Interactions.Abstraction.Model.Context;
 
@@ -6,8 +7,10 @@ namespace PrettyBots.Interactions.Abstraction.Model.Context;
 /// Contains data of the context
 /// in which user has responded to an interaction.
 /// </summary>
-public interface IInteractionContext<out TMessage, out TResponse>
-    where TMessage  : IUserMessage
+/// TODO: Add abstract response support if response was are instantiable from this response type
+public interface IInteractionContext<out TMessage, out TUser, out TResponse>
+    where TMessage : IUserMessage
+    where TUser : IUser
     where TResponse : IUserResponse
 {
     /// <summary>
@@ -20,11 +23,22 @@ public interface IInteractionContext<out TMessage, out TResponse>
     /// </summary>
     IInteraction TargetInteraction { get; }
 
+    TUser User { get; }
+
     /// <summary>
     /// Key of the valid interaction response that had been configured in order to
     /// accept the <see cref="Response"/>. 
     /// </summary>
     string ResponseKey { get; }
+
+    string? InteractionDataString { get; set; }
+
+    bool DataChanged { get; set; }
+
+    TData? GetInteractionData<TData>() 
+        where TData: class;
+
+    void SetInteractionData(object? data); 
 
     /// <summary>
     /// Contains the user's response.

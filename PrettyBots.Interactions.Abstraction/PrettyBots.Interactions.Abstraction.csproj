@@ -9,7 +9,13 @@
     <ItemGroup>
       <ProjectReference Include="..\PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Storages.Abstraction\PrettyBots.Storages.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Utilities\PrettyBots.Utilities.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

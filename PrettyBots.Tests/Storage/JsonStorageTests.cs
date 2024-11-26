@@ -48,7 +48,7 @@ public class JsonStorageTests
             await storage.StoreInteractionIdAsync(2L, 12U);
 
             TestUser secondUser = storage.UserModels
-                .First(u => u.UserId == 2L);
+                .First(u => u.TelegramUserId == 2L);
             secondUser.Test = TEST_PARAM_VALUE;
             await storage.SaveChangesAsync();
             
@@ -68,7 +68,7 @@ public class JsonStorageTests
             Assert.That(thirdUserIId, Is.EqualTo(12U));
 
             TestUser secondUser = newSessionStorage.UserModels.ElementAt(1);
-            Assert.That(secondUser.UserId, Is.EqualTo(2L));
+            Assert.That(secondUser.TelegramUserId, Is.EqualTo(2L));
             Assert.That(secondUser.Test, Is.EqualTo(TEST_PARAM_VALUE));
             Assert.That(secondUser.CurrentInteractionId, Is.EqualTo(19U));
         }

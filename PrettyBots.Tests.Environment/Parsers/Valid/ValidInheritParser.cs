@@ -1,6 +1,7 @@
 ﻿using MorseCode.ITask;
 
 using PrettyBots.Environment.Responses;
+using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Tests.Environment.Messages;
 using PrettyBots.Tests.Environment.Parsers.Invalid;
 

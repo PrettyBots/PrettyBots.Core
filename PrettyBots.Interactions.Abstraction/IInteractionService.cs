@@ -15,4 +15,6 @@ public interface IInteractionService
     public IConfigurationService Config { get; }
     
     public IEnvironment Environment { get; }
+
+    Task LaunchInteractionAsync(long userId, uint interactionId, CancellationToken token = default);
 }

@@ -1,4 +1,6 @@
-﻿using PrettyBots.Environment;
+﻿
+using PrettyBots.Environment;
+using PrettyBots.Interactions.Validators.Abstraction.Model;
 
 namespace PrettyBots.Interactions.Validators.Abstraction;
 
@@ -9,11 +11,11 @@ namespace PrettyBots.Interactions.Validators.Abstraction;
 public abstract class ResponseValidator<TResponse> : IResponseValidator<TResponse>
     where TResponse : IUserResponse
 {
-    protected abstract ValueTask<bool> ValidateAsync(TResponse response, IValidatorConfig config);
+    protected abstract ValueTask<ValidationResult> ValidateAsync(TResponse response, IValidatorConfig config);
 
-    public ValueTask<bool> ValidateResponseAsync(TResponse response, IValidatorConfig config) =>
+    public ValueTask<ValidationResult> ValidateResponseAsync(TResponse response, IValidatorConfig config) =>
         ValidateAsync(response, config);
 
-    public ValueTask<bool> ValidateResponseAsync(IUserResponse response, IValidatorConfig config) =>
+    public ValueTask<ValidationResult> ValidateResponseAsync(IUserResponse response, IValidatorConfig config) =>
         ValidateResponseAsync((TResponse)response, config);
 }

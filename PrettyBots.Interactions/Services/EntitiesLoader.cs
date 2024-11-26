@@ -236,7 +236,7 @@ public class EntitiesLoader : IEntitiesLoader
                 
                 Type firstParamType = handlerParams[0].ParameterType;
                 if (!firstParamType.IsGenericType || !firstParamType.GetGenericTypeDefinition()
-                        .IsEquivalentTo(typeof(IInteractionContext<,>))) {
+                        .IsEquivalentTo(typeof(IInteractionContext<,,>))) {
                     HandlerLoadingException exception = new HandlerLoadingException(moduleInfo.Type,
                         methodInfo, "The first handler parameter should be of the " +
                                     "IInteractionContext<> type");
@@ -258,12 +258,15 @@ public class EntitiesLoader : IEntitiesLoader
                     handlerInfosBuildingResult.Add(GenericLoadingResult<InteractionHandlerInfo>.FromFailure(methodInfo.Name, exception));
                     continue;
                 }
+                
+                //TODO: check user type
+                Type userType = contextTypeArguments[1];
 
-                if (contextTypeArguments[1].IsEquivalentTo(typeof(IUserResponse))) {
+                if (contextTypeArguments[2].IsEquivalentTo(typeof(IUserResponse))) {
                     acceptsSpecificContext = false;
                 } else {
                     acceptsSpecificContext      = true;
-                    specificContextResponseType = contextTypeArguments[1];
+                    specificContextResponseType = contextTypeArguments[2];
                 }
 
                 if (acceptsSpecificContext && (
@@ -294,7 +297,7 @@ public class EntitiesLoader : IEntitiesLoader
                 
                 InteractionHandlerInfo handlerInfo = new InteractionHandlerInfo(
                     handlerAttribute.InteractionId, handlerAttribute.RunMode, methodInfo, moduleInfo,
-                    _environment.MessageType, acceptsSpecificContext, isAsync, isCancellable, 
+                    _environment.MessageType, userType, acceptsSpecificContext, isAsync, isCancellable, 
                     specificContextResponseType);
                 
                 loadedHandlers.Add(handlerInfo);
@@ -664,7 +667,7 @@ public class EntitiesLoader : IEntitiesLoader
                     ValidatorLoadingException exception = new ValidatorLoadingException(validatorType,
                         "One of the ConfigurableWith attributes declared that this validator "             +
                         $"should accept the config of type {configType.Name} but this config type is not " +
-                        "assignable to IResponseModelConfig<IUserResponse> and thus, can't be used as "   +
+                        "assignable to IValidatorConfig<IUserResponse> and thus, can't be used as "   +
                         "a valid configuration type");
 
                     HandleSoftLoadingException(exception);

@@ -1,5 +1,7 @@
 ﻿using MorseCode.ITask;
 
+using PrettyBots.Environment.Parsers.Model;
+
 namespace PrettyBots.Environment.Parsers;
 
 /// <summary>
@@ -25,6 +27,6 @@ public interface IResponseParser<out TResponse>
     /// Parses the message that was sent by the user
     /// into the response of the specified type.
     /// </summary>
-    public ITask<TResponse> ParseResponseAsync(IUserMessage message, 
+    public ITask<ParsingResult> ParseResponseAsync(IUserMessage message, 
         CancellationToken token = default);
 }
