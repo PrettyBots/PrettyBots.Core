@@ -5,7 +5,7 @@ using PrettyBots.Tests.Environment.Messages;
 namespace PrettyBots.Tests.Environment;
 
 public class TestResponseModelBuilder<TResponse> : ResponseModelBuilder<TestMessage, TResponse>
-    where TResponse : class, IUserResponse, new()
+    where TResponse : class, IUserResponse
 {
     protected TestResponseModelBuilder(string key) : base(key)
     {

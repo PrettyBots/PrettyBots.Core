@@ -1,5 +1,6 @@
 ﻿using PrettyBots.Attributes.Validators;
 using PrettyBots.Interactions.Validators.Abstraction;
+using PrettyBots.Interactions.Validators.Abstraction.Model;
 using PrettyBots.Tests.Environment.Responses;
 using PrettyBots.Tests.Environment.Validators.Configs;
 
@@ -13,5 +14,5 @@ namespace PrettyBots.Tests.Environment.Validators.Valid;
 [ConfigurableWith(typeof(AbstractConfigImpl))]
 public class ValidAcceptMultipleValidator : ResponseValidator<IAbstractResponse>
 {
-    protected override ValueTask<bool> ValidateAsync(IAbstractResponse response, IValidatorConfig config) { throw new NotImplementedException(); }
+    protected override ValueTask<ValidationResult> ValidateAsync(IAbstractResponse response, IValidatorConfig config) { throw new NotImplementedException(); }
 }

@@ -13,7 +13,7 @@ namespace PrettyBots.Interactions.Builders.InteractionResponses;
 /// </summary>
 public class ResponseModelBuilder<TMessage, TResponse> : IResponseModelBuilder<TResponse>
     where TMessage  : class, IUserMessage, new()
-    where TResponse : class, IUserResponse, new()
+    where TResponse : class, IUserResponse
 {
     private Type? _parserType;
     private Type? _validatorType;

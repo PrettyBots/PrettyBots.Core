@@ -2,6 +2,7 @@
 using PrettyBots.Environment.Responses;
 using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Validators.Abstraction;
+using PrettyBots.Interactions.Validators.Abstraction.Model;
 
 namespace PrettyBots.Tests.Environment.Validators.Valid;
 
@@ -11,5 +12,5 @@ namespace PrettyBots.Tests.Environment.Validators.Valid;
 [ConfigurableWithAny]
 public class ValidAcceptAnyValidator : ResponseValidator<TextResponse>
 {
-    protected override ValueTask<bool> ValidateAsync(TextResponse response, IValidatorConfig config) { throw new NotImplementedException(); }
+    protected override ValueTask<ValidationResult> ValidateAsync(TextResponse response, IValidatorConfig config) { throw new NotImplementedException(); }
 }

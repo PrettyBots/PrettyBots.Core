@@ -1,5 +1,6 @@
 ﻿using PrettyBots.Attributes.Validators;
 using PrettyBots.Interactions.Validators.Abstraction;
+using PrettyBots.Interactions.Validators.Abstraction.Model;
 using PrettyBots.Tests.Environment.Responses;
 
 namespace PrettyBots.Tests.Environment.Validators.Valid;
@@ -10,5 +11,5 @@ namespace PrettyBots.Tests.Environment.Validators.Valid;
 [ConfigurableWithAnyOfMyType]
 public class ValidGenericValidator : ResponseValidator<TestResponse>
 {
-    protected override ValueTask<bool> ValidateAsync(TestResponse response, IValidatorConfig config) { throw new NotImplementedException(); }
+    protected override ValueTask<ValidationResult> ValidateAsync(TestResponse response, IValidatorConfig config) { throw new NotImplementedException(); }
 }

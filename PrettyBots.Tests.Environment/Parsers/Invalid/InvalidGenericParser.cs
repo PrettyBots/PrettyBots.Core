@@ -1,6 +1,7 @@
 ﻿using MorseCode.ITask;
 
 using PrettyBots.Environment;
+using PrettyBots.Environment.Parsers.Model;
 using PrettyBots.Tests.Environment.Messages;
 
 namespace PrettyBots.Tests.Environment.Parsers.Invalid;
@@ -13,5 +14,5 @@ public class InvalidGenericParser : BaseTestParser<IUserResponse>
 {
     protected override bool CanParse(TestMessage message) { throw new NotImplementedException(); }
 
-    protected override ITask<IUserResponse> ParseResponseAsync(TestMessage message, CancellationToken token = default) { throw new NotImplementedException(); }
+    protected override ITask<ParsingResult> ParseResponseAsync(TestMessage message, CancellationToken token = default) { throw new NotImplementedException(); }
 }
