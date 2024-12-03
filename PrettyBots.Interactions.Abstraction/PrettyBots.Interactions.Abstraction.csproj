@@ -4,11 +4,20 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>0.0.1</Version>
+        <Product>PrettyBots.Interactions.Abstractions</Product>
+        <id>PrettyBots.Interactions.Abstractions</id>
+        <PackageId>PrettyBots.Interactions.Abstractions</PackageId>
+        <Authors>Lauriero</Authors>
+        <Company>Lauriero D.S.</Company>
+        <Description>Abstraction of the main PrettyBots interaction service</Description>
+        <PackageLicenseUrl>https://github.com/PrettyBots/PrettyBots.Core/blob/b37c0d3731a3d44c4a4d2f93df79c71f6f3fd2de/LICENSE</PackageLicenseUrl>
+        <Copyright>Copyright (c) 2024 Lauriero D.S.</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj" />
-      <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Validators.Abstraction\PrettyBots.Validators.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Storages.Abstraction\PrettyBots.Storages.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Utilities\PrettyBots.Utilities.csproj" />
     </ItemGroup>

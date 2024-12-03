@@ -5,14 +5,23 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Interactions</RootNamespace>
+        <Version>0.0.1</Version>
+        <Product>PrettyBots.Interactions</Product>
+        <id>PrettyBots.Interactions</id>
+        <PackageId>PrettyBots.Interactions</PackageId>
+        <Authors>Lauriero</Authors>
+        <Company>Lauriero D.S.</Company>
+        <Description>Implementation of the main PrettyBots interaction service</Description>
+        <PackageLicenseUrl>https://github.com/PrettyBots/PrettyBots.Core/blob/b37c0d3731a3d44c4a4d2f93df79c71f6f3fd2de/LICENSE</PackageLicenseUrl>
+        <Copyright>Copyright (c) 2024 Lauriero D.S.</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\PrettyBots.Attributes\PrettyBots.Attributes.csproj" />
       <ProjectReference Include="..\PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Interactions.Abstraction\PrettyBots.Interactions.Abstraction.csproj" />
-      <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
-      <ProjectReference Include="..\PrettyBots.Interactions.Validators\PrettyBots.Interactions.Validators.csproj" />
+      <ProjectReference Include="..\PrettyBots.Validators.Abstraction\PrettyBots.Validators.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Validators\PrettyBots.Validators.csproj" />
       <ProjectReference Include="..\PrettyBots.Storages.Abstraction\PrettyBots.Storages.Abstraction.csproj" />
       <ProjectReference Include="..\PrettyBots.Storages.Json\PrettyBots.Storages.Json.csproj" />
     </ItemGroup>

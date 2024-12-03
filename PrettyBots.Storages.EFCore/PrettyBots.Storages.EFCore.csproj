@@ -5,6 +5,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Storages.EFCore</RootNamespace>
+        <Version>0.0.1</Version>
+        <Product>PrettyBots.Storages.EFCore</Product>
+        <id>PrettyBots.Storages.EFCores</id>
+        <PackageId>PrettyBots.Storages.EFCore</PackageId>
+        <Authors>Lauriero</Authors>
+        <Company>Lauriero D.S.</Company>
+        <Description>Implementation of the database storage with EFCore framework that can be used in PrettyBots interaction service</Description>
+        <PackageLicenseUrl>https://github.com/PrettyBots/PrettyBots.Core/blob/b37c0d3731a3d44c4a4d2f93df79c71f6f3fd2de/LICENSE</PackageLicenseUrl>
+        <Copyright>Copyright (c) 2024 Lauriero D.S.</Copyright>
     </PropertyGroup>
 
     <ItemGroup>

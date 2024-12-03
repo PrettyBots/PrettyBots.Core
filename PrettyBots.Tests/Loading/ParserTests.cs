@@ -1,5 +1,4 @@
-﻿using PrettyBots.Environment.Responses;
-using PrettyBots.Environment.Responses.TextBased;
+﻿using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Interactions.Services;

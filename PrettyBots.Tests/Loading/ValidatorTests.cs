@@ -4,11 +4,11 @@ using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Interactions.Services;
-using PrettyBots.Interactions.Validators.Abstraction;
 using PrettyBots.Tests.Environment.Responses;
 using PrettyBots.Tests.Environment.Validators.Configs;
 using PrettyBots.Tests.Environment.Validators.Invalid;
 using PrettyBots.Tests.Environment.Validators.Valid;
+using PrettyBots.Validators.Abstraction;
 
 namespace PrettyBots.Tests.Loading;
 

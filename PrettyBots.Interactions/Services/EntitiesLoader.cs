@@ -21,8 +21,8 @@ using PrettyBots.Interactions.Attributes;
 using PrettyBots.Interactions.Builders;
 using PrettyBots.Interactions.Exceptions.Modules;
 using PrettyBots.Interactions.Utilities.DependencyInjection;
-using PrettyBots.Interactions.Validators.Abstraction;
 using PrettyBots.Utilities.Extensions;
+using PrettyBots.Validators.Abstraction;
 
 namespace PrettyBots.Interactions.Services;
 

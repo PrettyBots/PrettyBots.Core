@@ -5,14 +5,12 @@ using PrettyBots.Environment.Responses;
 using PrettyBots.Environment.Responses.TextBased;
 using PrettyBots.Interactions.Abstraction.Model.Context;
 using PrettyBots.Interactions.InteractionHandlers;
-using PrettyBots.Interactions.Validators;
-using PrettyBots.Interactions.Validators.Text;
-using PrettyBots.Interactions.Validators.Text.Configs;
 using PrettyBots.Tests.Environment.Interactions;
 using PrettyBots.Tests.Environment.Messages;
 using PrettyBots.Tests.Environment.Responses;
 using PrettyBots.Tests.Environment.Storage;
 using PrettyBots.Tests.Environment.Validators.Valid;
+using PrettyBots.Validators.Text.Configs;
 
 namespace PrettyBots.Tests.Environment.InteractionModules;
 

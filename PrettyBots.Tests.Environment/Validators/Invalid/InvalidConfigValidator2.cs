@@ -1,9 +1,9 @@
 ﻿using PrettyBots.Attributes.Validators;
 using PrettyBots.Environment.Responses;
 using PrettyBots.Environment.Responses.TextBased;
-using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Interactions.Validators.Abstraction.Model;
 using PrettyBots.Tests.Environment.Validators.Configs;
+using PrettyBots.Validators.Abstraction;
+using PrettyBots.Validators.Abstraction.Model;
 
 namespace PrettyBots.Tests.Environment.Validators.Invalid;
 

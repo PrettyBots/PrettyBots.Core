@@ -5,7 +5,6 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 
-using PrettyBots.Interactions.Abstraction.Initialization;
 using PrettyBots.Storages.Abstraction;
 using PrettyBots.Storages.Abstraction.Exceptions;
 using PrettyBots.Storages.Abstraction.Model;
@@ -15,7 +14,7 @@ namespace PrettyBots.Storages.Json;
 /// <summary>
 /// Uses JSON file to store the data about user interaction.
 /// </summary>
-public class JsonStorageProvider<TUser> : IStorageProvider, IRequireInitialization
+public class JsonStorageProvider<TUser> : IStorageProvider
     where TUser : class, IUser, new()
 {
     public const string FILE_NAME = "users.json"; 

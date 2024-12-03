@@ -16,14 +16,13 @@ using PrettyBots.Interactions.Abstraction.Services;
 using PrettyBots.Interactions.Exceptions;
 using PrettyBots.Interactions.Exceptions.Handling;
 using PrettyBots.Interactions.Utilities.DependencyInjection;
-using PrettyBots.Interactions.Validators;
 using PrettyBots.Storages.Abstraction;
 using PrettyBots.Utilities.Collections;
 using PrettyBots.Interactions.Abstraction.Model.Context;
 using PrettyBots.Interactions.Abstraction.Model.Context.Errors;
-using PrettyBots.Interactions.Validators.Abstraction.Model;
-using PrettyBots.Interactions.Validators.Text;
 using PrettyBots.Storages.Abstraction.Model;
+using PrettyBots.Validators.Abstraction.Model;
+using PrettyBots.Validators.Text;
 
 namespace PrettyBots.Interactions;
 

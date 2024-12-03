@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using PrettyBots.Environment;
 using PrettyBots.Environment.Responses;
 using PrettyBots.Environment.Responses.TextBased;
-using PrettyBots.Interactions.Abstraction.Model.Context;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Config;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading;
@@ -11,15 +9,14 @@ using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
 using PrettyBots.Interactions.Abstraction.Model.Responses;
 using PrettyBots.Interactions.Exceptions.Modules;
 using PrettyBots.Interactions.Services;
-using PrettyBots.Interactions.Validators;
-using PrettyBots.Interactions.Validators.Text;
-using PrettyBots.Interactions.Validators.Text.Configs;
 using PrettyBots.Tests.Environment.InteractionModules;
 using PrettyBots.Tests.Environment.Interactions;
 using PrettyBots.Tests.Environment.Parsers.Valid;
 using PrettyBots.Tests.Environment.Responses;
 using PrettyBots.Tests.Environment.Services;
 using PrettyBots.Tests.Environment.Validators.Valid;
+using PrettyBots.Validators.Text;
+using PrettyBots.Validators.Text.Configs;
 
 namespace PrettyBots.Tests.Loading;
 

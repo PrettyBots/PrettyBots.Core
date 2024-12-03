@@ -21,7 +21,7 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
 
     public TelegramInteractionService(IEnvironment environment) : base(environment)
     {
-        Loader.LoadResponseParsers(Assembly.GetAssembly(typeof(TelegramInteractionService))!);
+        Loader.LoadResponseParsers(Assembly.GetAssembly(typeof(TelegramEnvironment))!);
     }
 
     public TelegramInteractionService(
@@ -30,7 +30,7 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
         IStorageProvider storage)
         : base(logger, environment, loader, registry, config, storage)
     {
-        Loader.LoadResponseParsers(Assembly.GetAssembly(typeof(TelegramInteractionService))!);
+        Loader.LoadResponseParsers(Assembly.GetAssembly(typeof(TelegramEnvironment))!);
     }
 
     public async Task<bool> HandleMediaMessage(Update update)

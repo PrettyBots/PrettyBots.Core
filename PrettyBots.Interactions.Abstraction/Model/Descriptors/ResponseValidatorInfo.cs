@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 using PrettyBots.Environment;
-using PrettyBots.Interactions.Validators.Abstraction;
+using PrettyBots.Validators.Abstraction;
 
 namespace PrettyBots.Interactions.Abstraction.Model.Descriptors;
 

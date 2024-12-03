@@ -1,4 +1,4 @@
-﻿using PrettyBots.Interactions.Validators.Abstraction.Exceptions;
+﻿using PrettyBots.Validators.Abstraction.Exceptions;
 
 namespace PrettyBots.Attributes.Validators;
 

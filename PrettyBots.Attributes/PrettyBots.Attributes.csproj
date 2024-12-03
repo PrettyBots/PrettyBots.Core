@@ -4,12 +4,20 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>0.0.1</Version>
+        <Product>PrettyBots.Attributes</Product>
+        <id>PrettyBots.Attributes</id>
+        <PackageId>PrettyBots.Attributes</PackageId>
+        <Authors>Lauriero</Authors>
+        <Company>Lauriero D.S.</Company>
+        <Description>Attributes package for PrettyBots interaction service</Description>
+        <Copyright>Copyright (c) 2024 Lauriero D.S.</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\PrettyBots.Environment\PrettyBots.Environment.csproj" />
       <ProjectReference Include="..\PrettyBots.Interactions.Abstraction\PrettyBots.Interactions.Abstraction.csproj" />
-      <ProjectReference Include="..\PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj" />
+      <ProjectReference Include="..\PrettyBots.Validators.Abstraction\PrettyBots.Validators.Abstraction.csproj" />
     </ItemGroup>
 
 </Project>

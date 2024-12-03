@@ -6,7 +6,7 @@ using PrettyBots.Interactions.Abstraction.Model;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors.Loading.Abstraction;
-using PrettyBots.Interactions.Validators.Abstraction;
+using PrettyBots.Validators.Abstraction;
 
 namespace PrettyBots.Interactions.Abstraction.Services;
 

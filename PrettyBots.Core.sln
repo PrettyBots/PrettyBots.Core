@@ -4,13 +4,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Interactions", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Environment.Abstraction", "PrettyBots.Environment.Abstraction\PrettyBots.Environment.Abstraction.csproj", "{A8327995-8593-477A-B76D-C0FEA55B75F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Interactions.Validators.Abstraction", "PrettyBots.Interactions.Validators.Abstraction\PrettyBots.Interactions.Validators.Abstraction.csproj", "{C436DF88-01EB-47D6-AA28-CE126C8781CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Validators.Abstraction", "PrettyBots.Validators.Abstraction\PrettyBots.Validators.Abstraction.csproj", "{C436DF88-01EB-47D6-AA28-CE126C8781CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Attributes", "PrettyBots.Attributes\PrettyBots.Attributes.csproj", "{D72C05CE-1D19-45E5-BADF-0B95FD29CC64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Environment", "PrettyBots.Environment\PrettyBots.Environment.csproj", "{C73E8298-7E7F-44AB-991F-B7D519F0DE93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Interactions.Validators", "PrettyBots.Interactions.Validators\PrettyBots.Interactions.Validators.csproj", "{8E72D2B6-E1A1-4140-B06C-F6ACC4608FF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Validators", "PrettyBots.Validators\PrettyBots.Validators.csproj", "{8E72D2B6-E1A1-4140-B06C-F6ACC4608FF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBots.Interactions.Abstraction", "PrettyBots.Interactions.Abstraction\PrettyBots.Interactions.Abstraction.csproj", "{603FCF59-22EF-4C78-B7D8-95ECF23F779F}"
 EndProject

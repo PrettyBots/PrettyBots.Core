@@ -1,8 +1,8 @@
 using PrettyBots.Environment;
 using PrettyBots.Interactions.Abstraction.Model.Descriptors;
 using PrettyBots.Interactions.Abstraction.Model.Responses;
-using PrettyBots.Interactions.Validators.Abstraction;
-using PrettyBots.Interactions.Validators.Abstraction.Model;
+using PrettyBots.Validators.Abstraction;
+using PrettyBots.Validators.Abstraction.Model;
 
 namespace PrettyBots.Interactions.Abstraction.Model.Context.Errors;
 
