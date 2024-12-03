@@ -42,12 +42,12 @@ jobs:
       
       - uses: rmeneely/git-next-version@v1
         with:
-          tag_pattern: '[0-9]*.[0-9]*.[0-9]*'
+          tag_pattern: 'v[0-9]*.[0-9]*.[0-9]*'
           auto_increment: 'true'
           auto_increment_major_version_pattern: 'major:|breaking:|incompatible:'
           auto_increment_minor_version_pattern: 'minor:|feature:'
           auto_increment_limit: 'patch'
-          set_next_version_tag: 'true'
+          remove_prefix: 'true'
           
       - name: Tag Release
         uses: rickstaa/action-create-tag@v1
