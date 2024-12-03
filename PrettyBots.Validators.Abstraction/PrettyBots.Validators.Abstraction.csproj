@@ -5,6 +5,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Validators.Abstraction</RootNamespace>
+        <Version>0.0.1</Version>
+        <Product>PrettyBots.Validators.Abstraction</Product>
+        <id>PrettyBots.Validators.Abstraction</id>
+        <PackageId>PrettyBots.Validators.Abstraction</PackageId>
+        <Authors>Lauriero</Authors>
+        <Company>Lauriero D.S.</Company>
+        <Description>Abstraction of validators for PrettyBots interaction service</Description>
+        <Copyright>Copyright (c) 2024 Lauriero D.S.</Copyright>
     </PropertyGroup>
 
     <ItemGroup>

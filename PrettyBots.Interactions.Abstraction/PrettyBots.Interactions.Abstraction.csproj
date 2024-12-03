@@ -11,7 +11,6 @@
         <Authors>Lauriero</Authors>
         <Company>Lauriero D.S.</Company>
         <Description>Abstraction of the main PrettyBots interaction service</Description>
-        <PackageLicenseUrl>https://github.com/PrettyBots/PrettyBots.Core/blob/b37c0d3731a3d44c4a4d2f93df79c71f6f3fd2de/LICENSE</PackageLicenseUrl>
         <Copyright>Copyright (c) 2024 Lauriero D.S.</Copyright>
     </PropertyGroup>
 
