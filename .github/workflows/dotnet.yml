@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET
@@ -26,3 +24,75 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+  
+  publish:
+    runs-on: ubuntu-latest
+    needs: 
+      - build
+    steps:
+      - name: Publish PrettyBots.Environment.Abstraction
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Environment.Abstraction/PrettyBots.Environment.Abstraction.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Environment
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Environment/PrettyBots.Environment.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Validators.Abstraction
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Validators.Abstraction/PrettyBots.Validators.Abstraction.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Storages.Abstraction
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Storages.Abstraction/PrettyBots.Storages.Abstraction.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Storages.Json
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Storages.Json/PrettyBots.Storages.Json.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Storages.EFCore
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Storages.EFCore/PrettyBots.Storages.EFCore.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Utilities
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Utilities/PrettyBots.Utilities.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Interactions.Abstraction
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Interactions.Abstraction/PrettyBots.Interactions.Abstraction.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Attributes
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Attributes/PrettyBots.Attributes.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Validators
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Validators/PrettyBots.Validators.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Interactions
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Interactions/PrettyBots.Interactions.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Environment.Telegram
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Environment.Telegram/PrettyBots.Environment.Telegram.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish PrettyBots.Interactions.Telegram
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: PrettyBots.Interactions.Telegram/PrettyBots.Interactions.Telegram.csproj
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}    
+      
