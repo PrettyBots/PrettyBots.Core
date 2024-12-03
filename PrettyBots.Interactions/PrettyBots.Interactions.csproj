@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Interactions</RootNamespace>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Interactions</Product>
         <id>PrettyBots.Interactions</id>
         <PackageId>PrettyBots.Interactions</PackageId>

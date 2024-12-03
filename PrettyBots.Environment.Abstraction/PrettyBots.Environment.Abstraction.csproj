@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Environment</RootNamespace>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Environement.Abstraction</Product>
         <id>PrettyBots.Environement.Abstraction</id>
         <PackageId>PrettyBots.Environement.Abstraction</PackageId>

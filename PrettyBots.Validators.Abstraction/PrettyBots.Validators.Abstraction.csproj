@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Validators.Abstraction</RootNamespace>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Validators.Abstraction</Product>
         <id>PrettyBots.Validators.Abstraction</id>
         <PackageId>PrettyBots.Validators.Abstraction</PackageId>

@@ -4,7 +4,6 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Interactions.Telegram</Product>
         <id>PrettyBots.Interactions.Telegram</id>
         <PackageId>PrettyBots.Interactions.Telegram</PackageId>

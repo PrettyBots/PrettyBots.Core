@@ -18,7 +18,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 6.0.x
         
     - name: Restore dependencies
       run: dotnet restore
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/checkout@v4
         
       - name: Publish PrettyBots.Environment.Abstraction
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Environment.Abstraction/PrettyBots.Environment.Abstraction.csproj
@@ -76,7 +76,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Environment
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Environment/PrettyBots.Environment.csproj
@@ -84,7 +84,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Validators.Abstraction
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Validators.Abstraction/PrettyBots.Validators.Abstraction.csproj
@@ -92,7 +92,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Storages.Abstraction
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Storages.Abstraction/PrettyBots.Storages.Abstraction.csproj
@@ -100,7 +100,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Storages.Json
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Storages.Json/PrettyBots.Storages.Json.csproj
@@ -108,7 +108,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Storages.EFCore
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Storages.EFCore/PrettyBots.Storages.EFCore.csproj
@@ -116,7 +116,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Utilities
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Utilities/PrettyBots.Utilities.csproj
@@ -124,7 +124,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Interactions.Abstraction
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Interactions.Abstraction/PrettyBots.Interactions.Abstraction.csproj
@@ -132,7 +132,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Attributes
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Attributes/PrettyBots.Attributes.csproj
@@ -140,7 +140,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Validators
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Validators/PrettyBots.Validators.csproj
@@ -148,7 +148,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Interactions
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Interactions/PrettyBots.Interactions.csproj
@@ -156,7 +156,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Environment.Telegram
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Environment.Telegram/PrettyBots.Environment.Telegram.csproj
@@ -164,10 +164,9 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
           
       - name: Publish PrettyBots.Interactions.Telegram
-        uses: rohith/publish-nuget@v2
+        uses: brandedoutcast/publish-nuget@v2
         continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Interactions.Telegram/PrettyBots.Interactions.Telegram.csproj
           VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}    
-      

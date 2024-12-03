@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Validators</RootNamespace>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Validators</Product>
         <id>PrettyBots.Validators</id>
         <PackageId>PrettyBots.Validators</PackageId>

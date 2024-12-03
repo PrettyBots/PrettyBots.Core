@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Storages.EFCore</RootNamespace>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Storages.EFCore</Product>
         <id>PrettyBots.Storages.EFCores</id>
         <PackageId>PrettyBots.Storages.EFCore</PackageId>

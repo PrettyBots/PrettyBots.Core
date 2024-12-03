@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>PrettyBots.Storages.Abstraction</RootNamespace>
-        <Version>0.0.1</Version>
         <Product>PrettyBots.Storages.Abstraction</Product>
         <id>PrettyBots.Storages.Abstraction</id>
         <PackageId>PrettyBots.Storages.Abstraction</PackageId>
