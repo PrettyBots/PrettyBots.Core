@@ -54,6 +54,7 @@ jobs:
         
       - name: Publish PrettyBots.Environment.Abstraction
         uses: rohith/publish-nuget@v2
+        continue-on-error: true
         with:
           PROJECT_FILE_PATH: PrettyBots.Environment.Abstraction/PrettyBots.Environment.Abstraction.csproj
           VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
