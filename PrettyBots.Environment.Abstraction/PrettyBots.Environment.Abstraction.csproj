@@ -18,4 +18,8 @@
     <ItemGroup>
       <PackageReference Include="MorseCode.ITask" Version="2.0.3" />
     </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../LICENSE" Pack="true" PackagePath=""/>
+    </ItemGroup>
 </Project>

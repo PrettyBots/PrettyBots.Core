@@ -20,4 +20,7 @@
       <ProjectReference Include="..\PrettyBots.Validators.Abstraction\PrettyBots.Validators.Abstraction.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="../LICENSE" Pack="true" PackagePath=""/>
+    </ItemGroup>
 </Project>
