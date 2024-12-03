@@ -52,8 +52,8 @@ jobs:
       - name: Tag Release
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: ${{ env.NEXT_VERSION }}
-          message: "Releasing version ${{ env.NEXT_VERSION }}"
+          tag: v${{ env.NEXT_VERSION }}
+          message: "Releasing version v${{ env.NEXT_VERSION }}"
         
     outputs: 
       new-version: ${{ env.NEXT_VERSION }}
@@ -66,107 +66,21 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+          
+      - name: Restore dependencies
+        run: dotnet restore
         
-      - name: Publish PrettyBots.Environment.Abstraction
-        uses: brandedoutcast/publish-nuget@v2
+      - name: Build NuGet packages
+        run: |
+          dotnet pack -c Release \
+          -p:PackageVersion=${{ needs.generate-version.outputs.new-version }} \
+          -o packages
+    
+      - name: Publish packages
         continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Environment.Abstraction/PrettyBots.Environment.Abstraction.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Environment
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Environment/PrettyBots.Environment.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Validators.Abstraction
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Validators.Abstraction/PrettyBots.Validators.Abstraction.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Storages.Abstraction
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Storages.Abstraction/PrettyBots.Storages.Abstraction.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Storages.Json
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Storages.Json/PrettyBots.Storages.Json.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Storages.EFCore
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Storages.EFCore/PrettyBots.Storages.EFCore.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Utilities
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Utilities/PrettyBots.Utilities.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Interactions.Abstraction
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Interactions.Abstraction/PrettyBots.Interactions.Abstraction.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Attributes
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Attributes/PrettyBots.Attributes.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Validators
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Validators/PrettyBots.Validators.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Interactions
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Interactions/PrettyBots.Interactions.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Environment.Telegram
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Environment.Telegram/PrettyBots.Environment.Telegram.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
-      - name: Publish PrettyBots.Interactions.Telegram
-        uses: brandedoutcast/publish-nuget@v2
-        continue-on-error: true
-        with:
-          PROJECT_FILE_PATH: PrettyBots.Interactions.Telegram/PrettyBots.Interactions.Telegram.csproj
-          VERSION_STATIC: ${{ needs.generate-version.outputs.new-version }}
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}    
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
