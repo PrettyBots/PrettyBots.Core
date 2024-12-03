@@ -40,18 +40,16 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Git Version
-        id: version
-        uses: codacy/git-version@2.7.1
-
-      - name: Tag Release
-        uses: rickstaa/action-create-tag@v1
+      - uses: rmeneely/git-next-version@v1
         with:
-          tag: ${{ steps.version.outputs.version }}
-          message: "Releasing version ${{ steps.version.outputs.version }}"
+          tag_pattern: '[0-9]*.[0-9]*.[0-9]*'
+          auto_increment_major_version_pattern: 'major:|breaking:|incompatible:'
+          auto_increment_minor_version_pattern: 'minor:|feature:'
+          auto_increment_limit: 'patch'
+          set_next_version_tag: 'true'
         
     outputs: 
-      new-version: ${{ steps.version.outputs.version }}
+      new-version: $NEXT_VERSION
   
   publish:
     runs-on: ubuntu-latest
