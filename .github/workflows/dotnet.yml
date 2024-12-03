@@ -31,7 +31,7 @@ jobs:
       - build
     steps:
       - name: test
-        run: ls -la && ls -la ./PrettyBots.Environment.Abstraction/
+        run: ls/
       - name: Publish PrettyBots.Environment.Abstraction
         uses: rohith/publish-nuget@v2
         with:
