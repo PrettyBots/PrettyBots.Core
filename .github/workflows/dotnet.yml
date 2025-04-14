@@ -42,7 +42,7 @@ jobs:
             .github
             src
       
-      - uses: git-next-version:./.github/actions
+      - uses: ${{ github.workspace }}/.github/actions
         with:
           tag_pattern: 'v[0-9]*.[0-9]*.[0-9]*'
           auto_increment: 'true'
