@@ -1,0 +1,86 @@
+name: 'Git Next Version'
+author: Rick Meneely <rick@meneely.com>
+branding:
+  icon: chevrons-right
+  color: purple
+description: Determine the next version based upon last git tag and provided increment
+inputs:
+  tag_pattern:
+    description: The tag pattern to match
+    default: 'v[0-9]*.[0-9]*.[0-9]*'
+    required: false
+  increment:
+    description: The semantic version increment - major, minor, patch, none
+    default: minor
+    required: false
+  auto_increment:
+    description: Determine the next version based on commit messages
+    default: 'false'
+    required: false
+  auto_increment_major_version_pattern:
+    description: The commit message pattern to match major version commits
+    default: 'major:|breaking:|incompatible:'
+    required: false
+  auto_increment_minor_version_pattern:
+    description: The commit message pattern to match minor version commits
+    default: 'minor:|feature:'
+    required: false
+  auto_increment_limit:
+    description: The highest level of auto increment allowed - major, minor, patch
+    default: 'minor'
+    required: false
+  new_prefix:
+    description: Sets new prefix for the next version
+    default: ''
+    required: false
+  remove_prefix:
+    description: Removes last version prefix for the next version
+    default: 'false'
+    required: false
+  new_suffix:
+    description: Sets new suffix for the next version
+    default: ''
+    required: false
+  remove_suffix:
+    description: Removes last version suffix for the next version
+    default: 'false'
+    required: false
+  last_version:
+    description: Defines the last version instead of searching for it
+    default: ''
+    required: false
+  next_version:
+    description: Defines the next version instead of calculating it
+    default: ''
+    required: false
+  set_next_version_tag:
+    description: Create a version tag of NEXT_VERSION
+    default: 'false'
+    required: false
+outputs:
+  last_version:
+    description: 'The LAST_VERSION'
+    value: ${{ steps.get-next-version.outputs.last_version }}
+  next_version:
+    description: 'The NEXT_VERSION'
+    value: ${{ steps.get-next-version.outputs.next_version }}
+runs:
+  using: "composite"
+  steps:
+    - id: git-next-version
+      run: ${{ github.workspace }}./.github/actions/git-next-version.sh
+      shell: bash
+      env: 
+        INPUT_TAG_PATTERN: ${{ inputs.tag_pattern }}
+        INPUT_INCREMENT: ${{ inputs.increment }}
+        INPUT_AUTO_INCREMENT: ${{ inputs.auto_increment }}
+        INPUT_AUTO_INCREMENT_MAJOR_VERSION_PATTERN: ${{ inputs.auto_increment_major_version_pattern }}
+        INPUT_AUTO_INCREMENT_MINOR_VERSION_PATTERN: ${{ inputs.auto_increment_minor_version_pattern }}
+        INPUT_AUTO_INCREMENT_LIMIT: ${{ inputs.auto_increment_limit }}
+        INPUT_NEW_PREFIX: ${{ inputs.new_prefix }}
+        INPUT_REMOVE_PREFIX: ${{ inputs.remove_prefix }}
+        INPUT_NEW_SUFFIX: ${{ inputs.new_suffix }}
+        INPUT_REMOVE_SUFFIX: ${{ inputs.remove_suffix }}
+        INPUT_LAST_VERSION: ${{ inputs.last_version }}
+        INPUT_NEXT_VERSION: ${{ inputs.next_version }}
+        INPUT_SET_NEXT_VERSION_TAG: ${{ inputs.set_next_version_tag }}
