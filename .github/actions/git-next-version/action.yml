@@ -68,7 +68,7 @@ runs:
   using: "composite"
   steps:
     - id: git-next-version
-      run: ${{ github.workspace }}./.github/actions/git-next-version/git-next-version.sh
+      run: ${{ github.workspace }}/.github/actions/git-next-version/git-next-version.sh
       shell: bash
       env: 
         INPUT_TAG_PATTERN: ${{ inputs.tag_pattern }}
