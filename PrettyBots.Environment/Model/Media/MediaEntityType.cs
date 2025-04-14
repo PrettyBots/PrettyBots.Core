@@ -1,4 +1,4 @@
-namespace PrettyBots.Environment.Model;
+namespace PrettyBots.Environment.Model.Media;
 
 public enum MediaEntityType
 {

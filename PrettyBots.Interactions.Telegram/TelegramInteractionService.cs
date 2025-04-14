@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using PrettyBots.Environment;
 using PrettyBots.Environment.Model;
+using PrettyBots.Environment.Model.Media;
 using PrettyBots.Environment.Telegram;
 using PrettyBots.Interactions.Abstraction;
 using PrettyBots.Interactions.Abstraction.Services;

@@ -1,6 +1,4 @@
-using System.Text.Json.Serialization;
-
-namespace PrettyBots.Environment.Model;
+namespace PrettyBots.Environment.Model.Media;
 
 public class PhotoEntity : IMediaEntity
 {

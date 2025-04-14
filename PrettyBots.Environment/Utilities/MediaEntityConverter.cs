@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using PrettyBots.Environment.Model;
+using PrettyBots.Environment.Model.Media;
 
 namespace PrettyBots.Environment.Utilities;
 

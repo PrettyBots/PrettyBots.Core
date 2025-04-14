@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 using PrettyBots.Environment.Model;
+using PrettyBots.Environment.Model.Media;
 
 using Telegram.Bot.Types;
 

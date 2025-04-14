@@ -1,4 +1,5 @@
 using PrettyBots.Environment.Model;
+using PrettyBots.Environment.Model.Media;
 
 namespace PrettyBots.Environment.Responses.Media;
 
