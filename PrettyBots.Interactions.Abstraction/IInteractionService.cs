@@ -17,4 +17,5 @@ public interface IInteractionService
     public IEnvironment Environment { get; }
 
     Task LaunchInteractionAsync(long userId, uint interactionId, CancellationToken token = default);
+    Task StoreInteractionDataAsync(long userId, object? data, CancellationToken token = default);
 }

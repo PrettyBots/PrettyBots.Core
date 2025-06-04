@@ -6,6 +6,8 @@ using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using Newtonsoft.Json;
+
 using PrettyBots.Environment;
 using PrettyBots.Environment.Parsers.Model;
 using PrettyBots.Interactions.Abstraction;
@@ -93,6 +95,14 @@ public class InteractionService<TMessage> : IInteractionService,
     public async Task LaunchInteractionAsync(long userId, uint interactionId, CancellationToken token = default)
     {
         await _storage.StoreInteractionIdAsync(userId, interactionId, token);
+    }
+
+    public async Task StoreInteractionDataAsync(long userId, object? data, CancellationToken token = default)
+    {
+        await _storage.StoreInteractionDataAsync(userId,
+            data is null ? null : JsonConvert.SerializeObject(data, new JsonSerializerSettings {
+                NullValueHandling = NullValueHandling.Ignore,
+            }), token);
     }
 
     public async Task HandleUserMessageAsync(TMessage message, CancellationToken token = default)
