@@ -36,11 +36,11 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
 
     public async Task<bool> HandleMediaMessage(Update update)
     {
-        if (update.Message?.Type != MessageType.Photo) {
+        if (update.Message?.Type != MessageType.Photo && update.Message?.Type != MessageType.Video) {
             return false;
         }
         
-        Message response = update.Message;
+        Message response = update.Message!;
         if (response.Type == MessageType.Photo) {
             PhotoEntity photo = new PhotoEntity() {
                 Caption = response.Caption,
@@ -54,6 +54,18 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
                 )),
             };
             TelegramUserMessage userMessage = new TelegramUserMessage(update, null, photo);
+            await HandleUserMessageAsync(userMessage);
+        } else if (response.Type == MessageType.Video) {
+            VideoEntity video = new VideoEntity() {
+                Caption = response.Caption,
+                FileId = response.Video!.FileId,
+                Width = response.Video!.Width,
+                Height = response.Video!.Height,
+                Duration = response.Video!.Duration,
+                FileName = response.Video!.FileName,
+            };
+            
+            TelegramUserMessage userMessage = new TelegramUserMessage(update, null, video);
             await HandleUserMessageAsync(userMessage);
         } else {
             throw new NotImplementedException();
@@ -69,7 +81,7 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
         }
         
         Message response = update.Message;
-        PhotoEntity photo;
+        IMediaEntity entity;
 
         if (_userContexts.TryGetValue(response.From!.Id, out MediaGroupHandlerContext? context)) {
             if (context.MediaGroupId != response.MediaGroupId!) {
@@ -81,7 +93,7 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
         }
         
         if (response.Type == MessageType.Photo) {
-            photo = new PhotoEntity() {
+            entity = new PhotoEntity() {
                 Caption = response.Caption,
                 Sizes = new List<PhotoEntitySize>(response.Photo!.Select(p => 
                     new PhotoEntitySize() {
@@ -91,6 +103,15 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
                         FileSize = p.FileSize,
                     }
                 )),
+            };
+        } else if (response.Type == MessageType.Video) {
+            entity = new VideoEntity {
+                Caption  = response.Caption,
+                FileId   = response.Video!.FileId,
+                Width    = response.Video!.Width,
+                Height   = response.Video!.Height,
+                Duration = response.Video!.Duration,
+                FileName = response.Video!.FileName,
             };
         } else {
             throw new NotImplementedException();
@@ -103,7 +124,7 @@ public class TelegramInteractionService : InteractionService<TelegramUserMessage
             _userContexts.TryAdd(update.Message.From!.Id, context);
         }
         
-        context.MediaEntities.Add(photo);
+        context.MediaEntities.Add(entity);
         context.Updates.Add(update);
         
         return true;
